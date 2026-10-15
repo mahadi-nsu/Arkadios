@@ -780,33 +780,6 @@ details p {
   padding-left: 10px;
   margin-left: 3px;
 }
-.scope-controls {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.scope-controls select {
-  border: 0;
-  background: transparent;
-  min-height: 23px;
-  padding: 0 22px 0 0;
-  font-size: 0.6875rem;
-  max-width: 175px;
-  color: #677583;
-}
-.persona-select {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.persona-select > span {
-  font-size: 0.6875rem;
-  color: var(--muted);
-}
-.scope-controls > select {
-  border-left: 1px solid #e2e6e8;
-  padding-left: 14px;
-}
 .main-content {
   padding: 27px 31px 35px;
   flex: 1;
@@ -5061,9 +5034,6 @@ details p {
   .scope-controls select {
     max-width: 150px;
   }
-  .scope-controls .persona-select > span {
-    display: none;
-  }
   .table-toolbar {
     flex-wrap: wrap;
     gap: 12px;
@@ -7079,5 +7049,131 @@ textarea:focus {
   }
   .metric-bottom {
     min-height: 34px;
+  }
+}
+
+/* Keep the active persona and department visible as workspace controls. */
+.scopebar {
+  background: #f8fbfd;
+  min-height: 82px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  gap: 14px 20px;
+}
+.scope-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-left: auto;
+  min-width: 0;
+}
+.scope-controls .scope-control {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  position: relative;
+  padding: 9px 13px;
+  background: #fff;
+  border: 1px solid #cbd9e5;
+  border-radius: 9px;
+  box-shadow: 0 2px 4px #16334c06;
+  cursor: pointer;
+  min-width: 0;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.scope-control:hover {
+  border-color: #91b4c5;
+}
+.scope-controls .scope-control:focus-within {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px #087f731c;
+}
+.scope-control-icon {
+  box-sizing: content-box;
+  padding: 8px;
+  border-radius: 8px;
+  color: #3463ac;
+  background: #edf3ff;
+}
+.scope-department .scope-control-icon {
+  color: #08786a;
+  background: #e5f5ee;
+}
+.scope-control-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+}
+.scope-control-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #576d80;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.scope-controls .scope-control select {
+  appearance: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+  min-height: 23px;
+  width: 100%;
+  max-width: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+.scope-controls .persona-select select {
+  width: 232px;
+  max-width: 100%;
+}
+.scope-department .scope-control-content {
+  width: 175px;
+}
+.scope-control-chevron {
+  color: #698395;
+  pointer-events: none;
+}
+.scope-controls .scope-department[data-filtered="true"] {
+  border-color: #7fb9a6;
+  background: #f1faf6;
+}
+.scope-department[data-filtered="true"] select {
+  color: #076a54;
+}
+@media (max-width: 1100px) {
+  .scopebar > .demo-badge {
+    width: 100%;
+  }
+  .scope-controls {
+    margin-left: 0;
+  }
+}
+@media (max-width: 620px) {
+  .scope-controls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+  }
+  .scope-controls .scope-control {
+    padding: 9px 12px;
+  }
+  .scope-controls .persona-select select {
+    width: 100%;
+  }
+  .scope-department .scope-control-content {
+    width: auto;
   }
 }

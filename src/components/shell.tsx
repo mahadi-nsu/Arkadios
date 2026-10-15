@@ -419,34 +419,67 @@ function Workspace({ children }: { children: React.ReactNode }) {
             </span>
           </div>
           <div className="scope-controls">
-            <label className="persona-select">
-              <span>Viewing as</span>
-              <select
-                aria-label="Demo persona"
-                value={u.id}
-                onChange={(e) =>
-                  useApp.getState().switchPersona(e.target.value)
-                }
-              >
-                {values(d.users)
-                  .filter((u) => u.active)
-                  .sort(
-                    (a, b) =>
-                      ["Admin", "Manager", "Member", "Read-only"].indexOf(
-                        a.role,
-                      ) -
-                      ["Admin", "Manager", "Member", "Read-only"].indexOf(
-                        b.role,
-                      ),
-                  )
-                  .map((employee) => (
-                    <option key={employee.id} value={employee.id}>
-                      {employee.name} · {employee.role}
-                    </option>
-                  ))}
-              </select>
+            <label className="scope-control persona-select">
+              <UsersRound
+                className="scope-control-icon"
+                size={19}
+                aria-hidden="true"
+              />
+              <span className="scope-control-content">
+                <span className="scope-control-label">Viewing as</span>
+                <select
+                  aria-label="Demo persona"
+                  value={u.id}
+                  onChange={(e) =>
+                    useApp.getState().switchPersona(e.target.value)
+                  }
+                >
+                  {values(d.users)
+                    .filter((u) => u.active)
+                    .sort(
+                      (a, b) =>
+                        ["Admin", "Manager", "Member", "Read-only"].indexOf(
+                          a.role,
+                        ) -
+                        ["Admin", "Manager", "Member", "Read-only"].indexOf(
+                          b.role,
+                        ),
+                    )
+                    .map((employee) => (
+                      <option key={employee.id} value={employee.id}>
+                        {employee.name} · {employee.role}
+                      </option>
+                    ))}
+                </select>
+              </span>
+              <ChevronDown
+                className="scope-control-chevron"
+                size={16}
+                aria-hidden="true"
+              />
             </label>
-            <DepartmentSelect value={departmentId} onChange={setDepartment} />
+            <label
+              className="scope-control scope-department"
+              data-filtered={!!departmentId}
+            >
+              <Building2
+                className="scope-control-icon"
+                size={19}
+                aria-hidden="true"
+              />
+              <span className="scope-control-content">
+                <span className="scope-control-label">Department</span>
+                <DepartmentSelect
+                  value={departmentId}
+                  onChange={setDepartment}
+                />
+              </span>
+              <ChevronDown
+                className="scope-control-chevron"
+                size={16}
+                aria-hidden="true"
+              />
+            </label>
           </div>
         </div>
         {storageError && (
