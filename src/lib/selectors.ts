@@ -122,9 +122,9 @@ export const dueThisWeek = (d: Dataset, t: Task) =>
   t.dueDate >= d.settings.demoDate &&
   t.dueDate <= shiftDate(d.settings.demoDate, 7);
 export const stageColor: Record<Stage, string> = {
-  prospect: "#7891af",
-  onboarding: "#e3ad52",
-  implementation: "#6986cd",
-  training: "#9e83be",
-  relationship: "#3e9c8c",
+  prospect: "#4b7bb9",
+  onboarding: "#d99526",
+  implementation: "#5375cc",
+  training: "#9263bf",
+  relationship: "#138d77",
 };

@@ -1,18 +1,18 @@
 @import "tailwindcss";
 @theme inline {
-  --color-background: #f7f8fa;
-  --color-foreground: #182230;
+  --color-background: #f1f5f9;
+  --color-foreground: #172b40;
   --font-sans: Arial, Helvetica, sans-serif;
 }
 :root {
   --navy: #141e2b;
-  --canvas: #f7f8fa;
+  --canvas: #f1f5f9;
   --surface: #fff;
-  --text: #182230;
-  --muted: #75808d;
-  --border: #e6e9ed;
-  --teal: #0f766e;
-  --teal-light: #edf6f3;
+  --text: #172b40;
+  --muted: #526277;
+  --border: #dbe3ec;
+  --teal: #087f73;
+  --teal-light: #e4f5ef;
   --radius: 10px;
 }
 * {
@@ -23,7 +23,7 @@ body {
   background: var(--canvas);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  font-size: 13px;
+  font-size: 0.9375rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -62,23 +62,23 @@ p {
   margin: 0;
 }
 h1 {
-  font-size: 27px;
+  font-size: 1.8125rem;
   line-height: 1.3;
   font-weight: 650;
   letter-spacing: -0.8px;
 }
 h2 {
-  font-size: 15px;
+  font-size: 1.0625rem;
   line-height: 1.4;
   font-weight: 650;
   letter-spacing: -0.2px;
 }
 h3 {
-  font-size: 13px;
+  font-size: 0.9375rem;
   font-weight: 600;
 }
 small {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 svg {
   flex-shrink: 0;
@@ -102,7 +102,7 @@ textarea {
 }
 input::placeholder,
 textarea::placeholder {
-  color: #667085;
+  color: var(--muted);
 }
 input:focus,
 select:focus,
@@ -112,7 +112,7 @@ textarea:focus {
 }
 select {
   padding-right: 28px;
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 textarea {
   resize: vertical;
@@ -129,13 +129,13 @@ input[type="checkbox"] {
 }
 input[type="file"] {
   height: auto;
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 input[type="number"] {
   width: 100%;
 }
 input[type="date"] {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 fieldset {
   border: 0;
@@ -145,7 +145,7 @@ fieldset {
 details summary {
   cursor: pointer;
   color: var(--teal);
-  font-size: 12px;
+  font-size: 0.875rem;
   margin-top: 12px;
 }
 details p {
@@ -185,22 +185,22 @@ details p {
   color: #647181;
 }
 .required {
-  color: #667085;
+  color: var(--muted);
 }
 .cell-sub {
   display: block;
-  font-size: 10px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 3px;
 }
 .due-overdue {
-  color: #667085;
+  color: var(--muted);
   font-weight: 500;
 }
 .due-overdue small {
   display: block;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 2px;
 }
 .skip-link {
@@ -221,7 +221,7 @@ details p {
   justify-content: center;
   gap: 7px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
   padding: 9px 14px;
   min-height: 37px;
@@ -267,7 +267,7 @@ details p {
   background: #ffe9e5;
 }
 .btn-sm {
-  font-size: 11px;
+  font-size: 0.8125rem;
   min-height: 31px;
   padding: 7px 10px;
   gap: 5px;
@@ -285,7 +285,7 @@ details p {
   width: 28px;
   height: 28px;
   border-radius: 5px;
-  color: #667085;
+  color: var(--muted);
 }
 .icon-action:hover {
   background: #eef3f2;
@@ -303,7 +303,7 @@ details p {
   background: #f2f4f6;
   border: 1px solid #e8ebef;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 0.75rem;
   line-height: 1.2;
   font-weight: 550;
   color: #667180;
@@ -324,17 +324,17 @@ details p {
 }
 .badge-red {
   background: #fceeed;
-  color: #667085;
+  color: var(--muted);
   border-color: #f5e0dc;
 }
 .badge-amber {
   background: #fcf5e9;
-  color: #667085;
+  color: var(--muted);
   border-color: #f3ead8;
 }
 .badge-blue {
   background: #eff3fa;
-  color: #667085;
+  color: var(--muted);
   border-color: #e3eaf6;
 }
 .badge-teal {
@@ -349,7 +349,7 @@ details p {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 0.8125rem;
   white-space: nowrap;
   color: #55616f;
 }
@@ -367,39 +367,39 @@ details p {
   justify-content: center;
   border-radius: 50%;
   background: #e5ece7;
-  color: #667085;
+  color: var(--muted);
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 600;
   border: 2px solid #fff;
 }
 .avatar-sm {
   width: 27px;
   height: 27px;
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .avatar-1 {
   background: #ece9f2;
-  color: #667085;
+  color: var(--muted);
 }
 .avatar-2 {
   background: #e7eef6;
-  color: #667085;
+  color: var(--muted);
 }
 .avatar-3 {
   background: #f4eae0;
-  color: #667085;
+  color: var(--muted);
 }
 .avatar-4 {
   background: #e5efed;
-  color: #667085;
+  color: var(--muted);
 }
 .person {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   white-space: nowrap;
-  font-size: 11px;
+  font-size: 0.8125rem;
   color: #617080;
 }
 .person .avatar {
@@ -415,8 +415,8 @@ details p {
   border-radius: 8px;
   background: #f2f4f6;
   border: 1px solid #e8ebee;
-  color: #667085;
-  font-size: 15px;
+  color: var(--muted);
+  font-size: 1.0625rem;
   font-family: Georgia, serif;
   font-weight: 600;
 }
@@ -424,17 +424,17 @@ details p {
   width: 64px;
   height: 64px;
   border-radius: 12px;
-  font-size: 31px;
+  font-size: 2.0625rem;
   background: #edf2ef;
-  color: #667085;
+  color: var(--muted);
   border-color: #dce6de;
 }
 .progress-wrap {
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 .progress-track {
   height: 5px;
@@ -459,7 +459,7 @@ details p {
   align-items: center;
   gap: 5px;
   color: #5e7f77;
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
   white-space: nowrap;
 }
@@ -491,14 +491,14 @@ details p {
 }
 .brand > span {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
+  font-size: 2rem;
   line-height: 0.95;
   letter-spacing: -1.2px;
 }
 .brand small {
   display: block;
   font-family: Arial, sans-serif;
-  font-size: 8px;
+  font-size: 0.6875rem;
   letter-spacing: 3.1px;
   color: #9aa6b5;
   margin: 9px 0 0 2px;
@@ -512,7 +512,7 @@ details p {
   border-bottom: 1px solid #ffffff0c;
   margin: 0 17px 9px;
   padding: 16px 5px;
-  font-size: 12px;
+  font-size: 0.875rem;
   color: #e1e6eb;
 }
 .workspace-label > div:nth-child(2) {
@@ -520,7 +520,7 @@ details p {
 }
 .workspace-label span {
   display: block;
-  font-size: 10px;
+  font-size: 0.75rem;
   color: #6f7d8e;
   margin-top: 3px;
 }
@@ -548,7 +548,7 @@ details p {
   margin-top: 19px;
 }
 .nav-group > p {
-  font-size: 8px;
+  font-size: 0.6875rem;
   letter-spacing: 1.6px;
   color: #647284;
   padding: 0 13px;
@@ -563,7 +563,7 @@ details p {
   padding: 9px 12px;
   margin: 2px 0;
   border-radius: 6px;
-  font-size: 11px;
+  font-size: 0.8125rem;
   min-height: 36px;
   font-weight: 450;
   transition: background 0.15s;
@@ -599,8 +599,8 @@ details p {
   background: #ffffff0c;
   padding: 1px 6px;
   border-radius: 4px;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .nav-dot {
   margin-left: auto;
@@ -617,7 +617,7 @@ details p {
   align-items: center;
   gap: 6px;
   margin: 0 22px 9px;
-  font-size: 8px;
+  font-size: 0.6875rem;
   color: #7f909a;
 }
 .workspace-status > i {
@@ -637,7 +637,7 @@ details p {
   width: 100%;
   padding: 13px 26px;
   color: #8996a6;
-  font-size: 10px;
+  font-size: 0.75rem;
   border-top: 1px solid #ffffff09;
 }
 .help-link > svg:last-child {
@@ -659,12 +659,12 @@ details p {
 .sidebar-person strong {
   display: block;
   color: #dde2e6;
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 500;
 }
 .sidebar-person div > span {
   display: block;
-  font-size: 9px;
+  font-size: 0.6875rem;
   margin-top: 3px;
   color: #7d8c9b;
 }
@@ -688,14 +688,14 @@ details p {
   display: flex;
   align-items: center;
   gap: 11px;
-  font-size: 10px;
+  font-size: 0.75rem;
   color: #5c6878;
 }
 .breadcrumb > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .breadcrumb-home {
-  color: #667085;
+  color: var(--muted);
 }
 .topbar-actions {
   display: flex;
@@ -706,15 +706,15 @@ details p {
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 .global-search kbd {
   font-family: inherit;
   border: 1px solid #e7eaee;
   background: #f9fafb;
   padding: 1px 5px;
-  font-size: 9px;
+  font-size: 0.6875rem;
   min-width: 28px;
   margin-left: 45px;
   border-radius: 4px;
@@ -744,7 +744,7 @@ details p {
 .topbar .avatar {
   border: 0;
   background: #e6ebe2;
-  color: #667085;
+  color: var(--muted);
 }
 .scopebar {
   display: flex;
@@ -757,13 +757,13 @@ details p {
   gap: 12px;
 }
 .demo-badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
   gap: 7px;
-  color: #667085;
+  color: var(--muted);
 }
 .demo-indicator {
   width: 5px;
@@ -772,9 +772,9 @@ details p {
   border-radius: 50%;
 }
 .scopebar-copy {
-  font-size: 9px;
+  font-size: 0.6875rem;
   font-weight: 400;
-  color: #667085;
+  color: var(--muted);
   letter-spacing: 0;
   border-left: 1px solid #dfe6e4;
   padding-left: 10px;
@@ -790,7 +790,7 @@ details p {
   background: transparent;
   min-height: 23px;
   padding: 0 22px 0 0;
-  font-size: 9px;
+  font-size: 0.6875rem;
   max-width: 175px;
   color: #677583;
 }
@@ -800,8 +800,8 @@ details p {
   gap: 6px;
 }
 .persona-select > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .scope-controls > select {
   border-left: 1px solid #e2e6e8;
@@ -818,8 +818,8 @@ details p {
   align-items: center;
   padding: 17px 31px;
   border-top: 1px solid #e8ebee;
-  font-size: 8px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   gap: 15px;
 }
 .app-footer > span {
@@ -844,15 +844,15 @@ details p {
   margin-bottom: 23px;
 }
 .page-description {
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
   margin-top: 6px;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 1.4px;
-  color: #667085;
+  color: var(--muted);
   margin-bottom: 7px;
   text-transform: uppercase;
 }
@@ -866,8 +866,8 @@ details p {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   border: 1px solid var(--border);
   border-radius: 6px;
   background: #fff;
@@ -875,7 +875,7 @@ details p {
   white-space: nowrap;
 }
 .date-pill .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
   background: #f7f8fa;
   padding: 2px 4px;
   font-weight: 400;
@@ -897,11 +897,11 @@ details p {
   padding: 21px 23px 17px;
 }
 .section-heading h2 {
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .section-heading p {
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   margin-top: 4px;
 }
 .section-icon {
@@ -911,14 +911,14 @@ details p {
   place-items: center;
   border: 1px solid #e5eae7;
   border-radius: 7px;
-  color: #667085;
+  color: var(--muted);
 }
 .panel-padding {
   padding: 0 23px 22px;
 }
 .panel-intro {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   padding: 0 23px 7px;
   margin-top: -10px;
 }
@@ -940,15 +940,15 @@ details p {
   place-items: center;
   border-radius: 12px;
   background: #f0f5f3;
-  color: #667085;
+  color: var(--muted);
   margin-bottom: 2px;
 }
 .empty h3 {
-  font-size: 14px;
+  font-size: 1rem;
 }
 .empty p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   max-width: 340px;
   line-height: 1.8;
 }
@@ -963,16 +963,16 @@ details p {
   border: 1px solid #e0ebe7;
   border-radius: 7px;
   padding: 14px 16px;
-  font-size: 11px;
+  font-size: 0.8125rem;
   line-height: 1.7;
-  color: #667085;
+  color: var(--muted);
   margin: 18px 0;
 }
 .notice > svg {
   margin-top: 1px;
 }
 .notice h3 {
-  font-size: 13px;
+  font-size: 0.9375rem;
   margin-bottom: 5px;
 }
 .notice-success {
@@ -983,22 +983,22 @@ details p {
 .storage-error {
   background: #fff4df;
   color: #996a25;
-  font-size: 12px;
+  font-size: 0.875rem;
   padding: 10px 30px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 .back-link {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   display: inline-block;
   margin-bottom: 23px;
 }
 .page-loading {
   padding: 60px;
   text-align: center;
-  color: #667085;
+  color: var(--muted);
 }
 .welcome-banner {
   display: flex;
@@ -1021,9 +1021,9 @@ details p {
   align-items: center;
   gap: 6px;
   letter-spacing: 1.5px;
-  font-size: 8px;
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: #667085;
+  color: var(--muted);
 }
 .welcome-eyebrow i {
   width: 4px;
@@ -1033,7 +1033,7 @@ details p {
 }
 .welcome-copy h2 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
+  font-size: 1.75rem;
   line-height: 1.35;
   color: #324f43;
   font-weight: 400;
@@ -1041,15 +1041,15 @@ details p {
   margin: 11px 0 10px;
 }
 .welcome-copy p {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .welcome-copy > a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: #4d7c66;
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 600;
   margin-top: 18px;
 }
@@ -1136,9 +1136,9 @@ details p {
   position: absolute;
   bottom: 23px;
   right: 26px;
-  font-size: 8px;
+  font-size: 0.6875rem;
   letter-spacing: 1.3px;
-  color: #667085;
+  color: var(--muted);
 }
 .metrics-grid {
   display: grid;
@@ -1166,8 +1166,8 @@ details p {
   gap: 8px;
 }
 .metric-top > span {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   font-weight: 500;
 }
 .metric-icon {
@@ -1177,28 +1177,28 @@ details p {
   place-items: center;
   border: 1px solid #e6eeea;
   border-radius: 7px;
-  color: #667085;
+  color: var(--muted);
   background: #f3f8f4;
 }
 .icon-teal {
   background: #eff6f3;
   border-color: #e4eee7;
-  color: #667085;
+  color: var(--muted);
 }
 .icon-blue {
   background: #f1f4fa;
   border-color: #e8ecf5;
-  color: #667085;
+  color: var(--muted);
 }
 .icon-amber {
   background: #fcf7ee;
   border-color: #f6eddd;
-  color: #667085;
+  color: var(--muted);
 }
 .icon-green {
   background: #f0f6f1;
   border-color: #e5ede4;
-  color: #667085;
+  color: var(--muted);
 }
 .metric-value {
   display: flex;
@@ -1208,7 +1208,7 @@ details p {
   height: 53px;
 }
 .metric-value > strong {
-  font-size: 32px;
+  font-size: 2.125rem;
   font-weight: 550;
   letter-spacing: -1.6px;
 }
@@ -1229,13 +1229,13 @@ details p {
   align-items: center;
   justify-content: space-between;
   gap: 5px;
-  color: #667085;
-  font-size: 8px;
+  color: var(--muted);
+  font-size: 0.6875rem;
   margin-top: 8px;
   white-space: nowrap;
 }
 .metric-bottom svg {
-  color: #667085;
+  color: var(--muted);
 }
 .lifecycle-overview .section-heading {
   padding-bottom: 19px;
@@ -1257,19 +1257,19 @@ details p {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
+  font-size: 0.75rem;
   color: #687585;
   font-weight: 550;
   white-space: nowrap;
 }
 .stage-number {
-  font-size: 8px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   font-weight: 400;
 }
 .stage-overview-title > svg {
   margin-left: auto;
-  color: #667085;
+  color: var(--muted);
   width: 12px;
 }
 .stage-total {
@@ -1279,13 +1279,13 @@ details p {
   margin: 10px 0 11px;
 }
 .stage-total > strong {
-  font-size: 28px;
+  font-size: 1.875rem;
   font-weight: 500;
   letter-spacing: -1.2px;
 }
 .stage-total > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .stage-track {
   height: 4px;
@@ -1301,12 +1301,12 @@ details p {
   min-width: 8%;
 }
 .stage-overview-item > p {
-  font-size: 8px;
+  font-size: 0.6875rem;
   margin-top: 11px;
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #667085;
+  color: var(--muted);
   white-space: nowrap;
 }
 .stage-overview-item > p > i {
@@ -1317,8 +1317,8 @@ details p {
 }
 .stage-overview-item > p > span {
   margin-left: auto;
-  color: #667085;
-  font-size: 7px;
+  color: var(--muted);
+  font-size: 0.6875rem;
 }
 .dashboard-main-grid {
   display: grid;
@@ -1331,15 +1331,15 @@ details p {
 .data-table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 11px;
+  font-size: 0.8125rem;
   white-space: nowrap;
   text-align: left;
 }
 .data-table th {
   background: #fafbfc;
   padding: 12px 18px;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   font-weight: 500;
   border-top: 1px solid #edf0f2;
   border-bottom: 1px solid #edf0f2;
@@ -1351,7 +1351,7 @@ details p {
   border-bottom: 1px solid #edf0f2;
   color: #6c7988;
   vertical-align: middle;
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .data-table tbody tr:last-child td {
   border-bottom: 0;
@@ -1369,7 +1369,7 @@ details p {
   scrollbar-color: #d7dfe2 transparent;
 }
 .dashboard-table th {
-  font-size: 8px;
+  font-size: 0.6875rem;
   padding: 10px 15px;
 }
 .dashboard-table td {
@@ -1382,25 +1382,25 @@ details p {
   padding-left: 23px;
 }
 .dashboard-table .task-title-button strong {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .dashboard-table .task-title-button small {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .dashboard-table .person {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .dashboard-table .person .avatar {
   width: 23px;
   height: 23px;
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .dashboard-table .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
   padding: 3px 6px;
 }
 .dashboard-table td {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .task-title-button {
   display: flex;
@@ -1410,15 +1410,15 @@ details p {
   text-align: left;
 }
 .task-title-button strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
   color: #46515f;
   display: block;
 }
 .task-title-button small {
   display: block;
-  color: #667085;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 0.6875rem;
   margin-top: 5px;
   max-width: 320px;
   overflow: hidden;
@@ -1442,7 +1442,7 @@ details p {
 }
 .task-check.complete {
   border: 0;
-  color: #667085;
+  color: var(--muted);
 }
 .handoff-panel {
   background: #fdfefd;
@@ -1459,7 +1459,7 @@ details p {
   flex: 1;
 }
 .handoff-item strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
   display: block;
   overflow: hidden;
@@ -1471,29 +1471,29 @@ details p {
   height: 32px;
   background: #f0f5f1;
   border-color: #e4ebe4;
-  color: #667085;
+  color: var(--muted);
 }
 .handoff-item div > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   display: flex;
   align-items: center;
   gap: 5px;
   margin: 4px 0;
 }
 .handoff-item small {
-  font-size: 8px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   display: flex;
   align-items: center;
   gap: 4px;
 }
 .handoff-item > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .handoff-note {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   background: #f7faf6;
   padding: 16px 22px;
   display: flex;
@@ -1502,13 +1502,13 @@ details p {
   line-height: 1.7;
 }
 .handoff-note svg {
-  color: #667085;
+  color: var(--muted);
 }
 .handoff-empty {
   padding: 25px;
   text-align: center;
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
   line-height: 1.7;
 }
 .handoff-empty svg {
@@ -1531,7 +1531,7 @@ details p {
   height: 29px;
   border: 1px solid #f2e9d9;
   background: #fdf9f1;
-  color: #667085;
+  color: var(--muted);
   display: grid;
   place-items: center;
   border-radius: 6px;
@@ -1541,19 +1541,19 @@ details p {
   min-width: 0;
 }
 .attention-list strong {
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 550;
 }
 .attention-list p {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 3px;
 }
 .attention-list .stage-badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .attention-list > a > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .review-list > button {
   width: 100%;
@@ -1574,32 +1574,32 @@ details p {
 }
 .date-tile > span {
   display: block;
-  font-size: 7px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
-  color: #667085;
+  color: var(--muted);
   background: #f3f6f3;
   padding: 2px;
 }
 .date-tile > strong {
   display: block;
-  font-size: 13px;
-  color: #667085;
+  font-size: 0.9375rem;
+  color: var(--muted);
   padding: 0 3px 2px;
 }
 .review-list > button > div:nth-child(2) {
   flex: 1;
 }
 .review-list strong {
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 550;
 }
 .review-list p {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 3px;
 }
 .review-list > button > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .department-pulse {
   padding: 0 23px 22px;
@@ -1609,8 +1609,8 @@ details p {
   align-items: center;
   gap: 15px;
   margin: 14px 0;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .department-pulse > a > span {
   width: 115px;
@@ -1632,7 +1632,7 @@ details p {
   width: 22px;
   text-align: right;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .milestone-preview > a {
   display: flex;
@@ -1646,7 +1646,7 @@ details p {
   height: 29px;
   border-radius: 6px;
   background: #f2f4f8;
-  color: #667085;
+  color: var(--muted);
   display: grid;
   place-items: center;
 }
@@ -1654,16 +1654,16 @@ details p {
   flex: 1;
 }
 .milestone-preview strong {
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 550;
 }
 .milestone-preview p {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 3px;
 }
 .milestone-preview .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .directory-stats {
   display: grid;
@@ -1685,11 +1685,11 @@ details p {
   border: 0;
 }
 .directory-stats span {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .directory-stats strong {
-  font-size: 27px;
+  font-size: 1.8125rem;
   font-weight: 500;
   letter-spacing: -1px;
 }
@@ -1702,8 +1702,8 @@ details p {
   overflow: auto;
 }
 .directory-tabs > button {
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   padding: 17px 0 14px;
   display: flex;
   align-items: center;
@@ -1717,7 +1717,7 @@ details p {
   font-weight: 550;
 }
 .directory-tabs .badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .table-toolbar {
   padding: 17px 23px;
@@ -1734,7 +1734,7 @@ details p {
   border-radius: 6px;
   background: #fff;
   padding: 0 10px;
-  color: #667085;
+  color: var(--muted);
   min-width: 220px;
   max-width: 320px;
   flex: 1;
@@ -1752,7 +1752,7 @@ details p {
   width: 100%;
   box-shadow: none !important;
   min-height: 32px;
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .toolbar-filters {
   display: flex;
@@ -1761,18 +1761,18 @@ details p {
 }
 .toolbar-filters select {
   min-height: 34px;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .check-label {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   white-space: normal;
 }
 .toolbar-filters .check-label {
-  font-size: 10px;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 .table-firm {
@@ -1783,14 +1783,14 @@ details p {
 .table-firm strong {
   display: block;
   color: #435161;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
 }
 .table-firm small {
   display: block;
-  color: #667085;
+  color: var(--muted);
   margin-top: 3px;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .table-firm:hover strong {
   color: var(--teal);
@@ -1802,7 +1802,7 @@ details p {
   padding: 0;
 }
 .sort-button svg {
-  color: #667085;
+  color: var(--muted);
   width: 10px;
 }
 .table-footer {
@@ -1811,8 +1811,8 @@ details p {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--border);
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   gap: 15px;
 }
 .pagination {
@@ -1846,17 +1846,17 @@ details p {
   align-items: center;
   gap: 7px;
   color: #465262;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
 }
 .table-person small {
   display: block;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   margin-top: 4px;
 }
 .table-person .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .table-person .avatar {
   border: 0;
@@ -1883,14 +1883,14 @@ details p {
 }
 .contact-summary > button strong {
   display: block;
-  font-size: 25px;
+  font-size: 1.6875rem;
   line-height: 1.3;
   font-weight: 500;
 }
 .contact-summary small {
   display: block;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   margin-top: 3px;
 }
 .contact-summary .metric-icon {
@@ -1903,12 +1903,12 @@ details p {
   gap: 15px;
   background: #f0f7f3;
   padding: 12px 23px;
-  color: #667085;
-  font-size: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
 }
 .bulk-toolbar select {
   min-height: 30px;
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .task-title-button:hover strong {
   color: var(--teal);
@@ -1935,9 +1935,9 @@ details p {
   gap: 7px;
   white-space: nowrap;
   padding: 12px 0 13px;
-  color: #667085;
+  color: var(--muted);
   border-bottom: 2px solid transparent;
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .tab-trigger[data-state="active"] {
   border-bottom-color: #4c8e7a;
@@ -1945,7 +1945,7 @@ details p {
   font-weight: 550;
 }
 .tab-trigger .badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .firm-detail-heading {
   display: flex;
@@ -1966,8 +1966,8 @@ details p {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .firm-detail-heading p > span + span {
   border-left: 1px solid #dfe4e7;
@@ -1997,34 +1997,34 @@ details p {
   height: 25px;
   border-radius: 50%;
   border: 1px solid #e5e9ed;
-  color: #667085;
+  color: var(--muted);
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .firm-stage-rail strong {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   font-weight: 500;
 }
 .firm-stage-rail small {
   display: block;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 3px;
 }
 .firm-stage-rail > div > svg {
   margin-left: auto;
-  color: #667085;
+  color: var(--muted);
 }
 .firm-stage-rail > div.done > span {
   background: #edf5ee;
   border-color: #dfebe0;
-  color: #667085;
+  color: var(--muted);
 }
 .firm-stage-rail > div.done strong {
-  color: #667085;
+  color: var(--muted);
 }
 .firm-stage-rail > div.current > span {
   color: #fff;
@@ -2035,7 +2035,7 @@ details p {
   color: #497a66;
 }
 .firm-stage-rail > div.current small {
-  color: #667085;
+  color: var(--muted);
 }
 .detail-grid {
   display: grid;
@@ -2050,25 +2050,25 @@ details p {
 }
 .overview-details > div > span:first-child {
   display: block;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   margin-bottom: 7px;
 }
 .overview-details strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
   color: #5a6876;
 }
 .overview-details small {
   display: block;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 5px;
 }
 .overview-details .person {
   display: inline-flex !important;
   color: #5a6876 !important;
-  font-size: 12px !important;
+  font-size: 0.875rem !important;
   margin: 0 !important;
 }
 .detail-wide {
@@ -2084,26 +2084,26 @@ details p {
 .primary-contact > .avatar {
   width: 50px;
   height: 50px;
-  font-size: 16px;
+  font-size: 1.125rem;
   margin: 0 0 3px;
 }
 .primary-contact > h3 {
-  font-size: 14px;
+  font-size: 1rem;
 }
 .primary-contact > p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .primary-contact > span:not(.avatar):not(.badge) {
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
 }
 .primary-contact > a {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 6px;
 }
 .primary-contact > .btn {
@@ -2119,18 +2119,18 @@ details p {
   border-top: 1px solid #f0f2f3;
 }
 .checklist-preview > button > span:nth-child(2) {
-  font-size: 11px;
+  font-size: 0.8125rem;
   color: #606e7b;
   flex: 1;
 }
 .checklist-preview small {
   display: block;
-  color: #667085;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 0.6875rem;
   margin-top: 3px;
 }
 .checklist-preview > button > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .checklist-status {
   width: 22px;
@@ -2140,13 +2140,13 @@ details p {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 .checklist-status.complete {
   border-color: #dcece3;
   background: #eef7f1;
-  color: #667085;
+  color: var(--muted);
 }
 .cadence-list {
   padding: 0 23px 20px;
@@ -2160,14 +2160,14 @@ details p {
 }
 .cadence-list span {
   display: block;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .cadence-list strong {
   display: block;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
   margin-top: 4px;
 }
 .integration-refs {
@@ -2183,33 +2183,33 @@ details p {
   display: grid;
   place-items: center;
   background: #ecf2fa;
-  color: #667085;
+  color: var(--muted);
   border: 1px solid #e2eaf7;
   border-radius: 7px;
   width: 33px;
   height: 33px;
-  font-size: 15px;
+  font-size: 1.0625rem;
   font-weight: 600;
 }
 .integration-1 {
   background: #eef4f0;
-  color: #667085;
+  color: var(--muted);
   border-color: #e3ebe4;
 }
 .integration-2 {
   background: #f4eff9;
-  color: #667085;
+  color: var(--muted);
   border-color: #eae2f2;
 }
 .integration-refs strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .integration-refs small {
   display: block;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 3px;
 }
 .timeline {
@@ -2222,13 +2222,13 @@ details p {
   border-top: 1px solid #f0f2f3;
 }
 .timeline p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   line-height: 1.8;
 }
 .timeline small {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   display: block;
   margin-top: 3px;
 }
@@ -2248,11 +2248,11 @@ details p {
   align-items: center;
   gap: 10px;
   color: #506372;
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .checklist-body p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-top: 8px;
   line-height: 1.7;
 }
@@ -2261,20 +2261,20 @@ details p {
   gap: 15px;
   flex-wrap: wrap;
   margin-top: 12px;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .checklist-body .blocker-summary {
-  color: #667085;
+  color: var(--muted);
   background: #fcf9f1;
   border: 1px solid #f4eee0;
   border-radius: 4px;
   padding: 8px 12px;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .checklist-body .evidence-note {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   border-left: 2px solid #d7e9dc;
   padding-left: 10px;
   margin-top: 12px;
@@ -2291,26 +2291,26 @@ details p {
   gap: 15px;
   padding: 22px;
   border-top: 1px solid #edf0f2;
-  color: #667085;
+  color: var(--muted);
 }
 .communication-link > div {
   flex: 1;
 }
 .communication-link strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: #5f727c;
 }
 .communication-link p {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 4px;
 }
 .prose-note {
   white-space: pre-wrap;
   line-height: 1.9;
-  color: #667085;
+  color: var(--muted);
   padding: 0 23px 26px;
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .review-row {
   display: flex;
@@ -2318,15 +2318,15 @@ details p {
   gap: 17px;
   padding: 20px 23px;
   border-top: 1px solid var(--border);
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .review-row > div {
   flex: 1;
 }
 .review-row p {
-  font-size: 10px;
+  font-size: 0.75rem;
   line-height: 1.7;
-  color: #667085;
+  color: var(--muted);
   max-width: 400px;
   margin-top: 5px;
 }
@@ -2356,14 +2356,14 @@ details p {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   padding: 6px 9px;
   border-radius: 4px;
 }
 .view-toggle > button.active {
   background: #eef5f0;
-  color: #667085;
+  color: var(--muted);
 }
 .pipeline-board {
   display: grid;
@@ -2387,7 +2387,7 @@ details p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
   color: #64717f;
 }
@@ -2403,20 +2403,20 @@ details p {
   background: var(--stage-color);
 }
 .pipeline-column-heading small {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   font-weight: 400;
 }
 .pipeline-column-heading .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
   background: #fff;
   border-color: #e7ebee;
   padding: 2px 5px;
   margin-left: 3px;
 }
 .pipeline-column-sub {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin: 5px 0 16px;
 }
 .pipeline-cards {
@@ -2443,14 +2443,14 @@ details p {
   width: 29px;
   height: 29px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .pipeline-card-heading > a {
-  color: #667085;
+  color: var(--muted);
 }
 .pipeline-firm-name {
   font-weight: 550;
-  font-size: 12px;
+  font-size: 0.875rem;
   line-height: 1.5;
   display: block;
 }
@@ -2458,34 +2458,34 @@ details p {
   color: var(--teal);
 }
 .pipeline-location {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin: 5px 0 10px;
 }
 .pipeline-card > .badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .pipeline-progress {
   margin-top: 17px;
 }
 .pipeline-progress > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   display: block;
   margin-bottom: 7px;
 }
 .pipeline-next {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin: 14px 0;
   line-height: 1.8;
   min-height: 37px;
 }
 .pipeline-next strong {
-  font-size: 9px;
+  font-size: 0.6875rem;
   font-weight: 500;
   display: block;
-  color: #667085;
+  color: var(--muted);
   line-height: 1.5;
 }
 .pipeline-card-bottom {
@@ -2500,17 +2500,17 @@ details p {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .pipeline-card-bottom > .due-overdue {
-  color: #667085 !important;
+  color: var(--muted) !important;
 }
 .pipeline-card > .btn {
   width: 100%;
   margin-top: 11px;
   min-height: 30px;
-  font-size: 10px;
+  font-size: 0.75rem;
   padding: 7px 4px;
 }
 .pipeline-card > .btn svg {
@@ -2521,15 +2521,15 @@ details p {
   align-items: center;
   justify-content: center;
   gap: 9px;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   padding-top: 12px;
 }
 .pipeline-empty {
   padding: 25px 10px;
   text-align: center;
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
 }
 .projects-grid {
   display: grid;
@@ -2559,25 +2559,25 @@ details p {
   margin-left: auto;
 }
 .project-card-top > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .project-icon {
   height: 36px;
   width: 36px;
   border-radius: 8px;
   background: #eef5f2;
-  color: #667085;
+  color: var(--muted);
   border: 1px solid #e2ebe5;
   display: grid;
   place-items: center;
 }
 .project-card > .eyebrow {
-  font-size: 8px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   letter-spacing: 1.3px;
 }
 .project-card h3 {
-  font-size: 15px;
+  font-size: 1.0625rem;
   font-weight: 550;
   line-height: 1.5;
   margin-bottom: 7px;
@@ -2585,15 +2585,15 @@ details p {
   color: #4b5f6a;
 }
 .project-card > p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-bottom: 23px;
 }
 .project-progress-label {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-bottom: 8px;
 }
 .project-card-footer {
@@ -2608,11 +2608,11 @@ details p {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .project-card-footer .person {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .project-summary {
   display: flex;
@@ -2635,21 +2635,21 @@ details p {
   padding-left: 0;
 }
 .project-summary strong {
-  font-size: 27px;
+  font-size: 1.8125rem;
   font-weight: 500;
   color: #5c7966;
 }
 .project-summary span {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 4px;
 }
 .project-summary > p {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
   line-height: 1.8;
   margin-left: 32px;
   max-width: 300px;
@@ -2662,14 +2662,14 @@ details p {
 }
 .project-detail-meta > div > span:first-child {
   display: block;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   margin-bottom: 8px;
 }
 .project-detail-meta strong {
   font-weight: 550;
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
 }
 .milestone-list {
   display: flex;
@@ -2692,22 +2692,22 @@ details p {
   border: 1px solid #e1e6e9;
   border-radius: 50%;
   background: #fafbfb;
-  color: #667085;
-  font-size: 13px;
+  color: var(--muted);
+  font-size: 0.9375rem;
 }
 .milestone-step.complete {
   border-color: #e4efe6;
   background: #f1f8f2;
-  color: #667085;
+  color: var(--muted);
 }
 .milestone-list strong {
   font-weight: 550;
-  color: #667085;
-  font-size: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
 }
 .milestone-list input,
 .milestone-list select {
-  font-size: 11px;
+  font-size: 0.8125rem;
   min-height: 31px;
   padding: 6px 10px;
 }
@@ -2717,12 +2717,12 @@ details p {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .activity-line small {
   white-space: nowrap;
-  color: #667085;
+  color: var(--muted);
 }
 .document-summary {
   display: flex;
@@ -2748,21 +2748,21 @@ details p {
 .document-summary > div > svg {
   grid-row: 1/3;
   align-self: center;
-  color: #667085;
+  color: var(--muted);
 }
 .document-summary strong {
-  font-size: 25px;
+  font-size: 1.6875rem;
   font-weight: 500;
   color: #5c717c;
 }
 .document-summary span {
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 .document-summary > p {
   padding-left: 25px;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   line-height: 1.8;
   flex: 1;
 }
@@ -2774,14 +2774,14 @@ details p {
   padding: 0;
 }
 .document-name strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
   color: #5e727c;
 }
 .document-name small {
   display: block;
-  color: #667085;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 0.6875rem;
   margin-top: 5px;
 }
 .file-icon {
@@ -2792,7 +2792,7 @@ details p {
   border: 1px solid #e4ebe6;
   display: grid;
   place-items: center;
-  color: #667085;
+  color: var(--muted);
   flex-shrink: 0;
 }
 .document-dialog-toolbar {
@@ -2818,32 +2818,32 @@ details p {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
   flex-shrink: 0;
 }
 .signer-check.signed {
   border-color: #deeee5;
   background: #f0f8f1;
-  color: #667085;
+  color: var(--muted);
 }
 .signer-list > div > div {
   flex: 1;
 }
 .signer-list strong {
   display: block;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 .signer-list small {
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   display: block;
   margin-top: 4px;
 }
 .signer-list > div > span:last-child {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .signature-actions {
   display: flex;
@@ -2851,22 +2851,22 @@ details p {
   gap: 10px;
 }
 .signature-actions .btn {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .document-events {
   margin-top: 25px;
 }
 .document-events p {
-  font-size: 11px;
+  font-size: 0.8125rem;
   display: flex;
   justify-content: space-between;
-  color: #667085;
+  color: var(--muted);
   padding: 9px 0;
   border-bottom: 1px solid #f0f3f3;
 }
 .document-events small {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .file-preview {
   width: 100%;
@@ -2881,7 +2881,7 @@ details p {
 .file-field > label {
   display: block;
   margin-bottom: 9px;
-  color: #667085;
+  color: var(--muted);
 }
 .file-field input {
   width: 100%;
@@ -2911,13 +2911,13 @@ details p {
   margin-bottom: 17px;
 }
 .inbox-list-toolbar h2 {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .inbox-list-toolbar select {
   margin-left: auto;
   border: 0;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   padding: 0 20px 0 5px;
   min-height: 20px;
 }
@@ -2947,22 +2947,22 @@ details p {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 9px;
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 .thread-item-top small {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .thread-list strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
   line-height: 1.6;
   color: #5d6e79;
 }
 .thread-list p {
-  color: #667085;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
   line-height: 1.8;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -2975,11 +2975,11 @@ details p {
   align-items: center;
   justify-content: space-between;
   margin-top: 13px;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .thread-item-bottom .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .inbox-thread {
   display: flex;
@@ -2999,19 +2999,19 @@ details p {
   min-width: 0;
 }
 .thread-header h2 {
-  font-size: 14px;
+  font-size: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .thread-header > div > div {
   display: flex;
   gap: 8px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 6px;
 }
 .thread-header .text-link {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .thread-participants {
   display: flex;
@@ -3020,8 +3020,8 @@ details p {
   background: #fcfdfd;
   border-bottom: 1px solid var(--border);
   padding: 12px 23px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   flex-wrap: wrap;
 }
 .thread-participants > span {
@@ -3030,20 +3030,20 @@ details p {
   gap: 5px;
 }
 .thread-participants > span:first-child {
-  color: #667085;
+  color: var(--muted);
   margin-right: 4px;
 }
 .thread-participants select {
   margin-left: auto;
   min-height: 26px;
-  font-size: 10px;
+  font-size: 0.75rem;
   padding: 3px 23px 3px 7px;
   background: #fff;
 }
 .thread-participants .avatar {
   height: 22px;
   width: 22px;
-  font-size: 7px;
+  font-size: 0.6875rem;
   border: 0;
 }
 .message-history {
@@ -3067,8 +3067,8 @@ details p {
   flex: 1;
 }
 .message-date-divider > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .message {
   display: flex;
@@ -3080,9 +3080,9 @@ details p {
   border: 0;
   width: 28px;
   height: 28px;
-  font-size: 9px;
+  font-size: 0.6875rem;
   background: #f1f4f6;
-  color: #667085;
+  color: var(--muted);
 }
 .message-content {
   border: 1px solid #e8edef;
@@ -3096,25 +3096,25 @@ details p {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .message-heading strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
-  color: #667085;
+  color: var(--muted);
 }
 .message-heading .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .message-heading > time {
-  font-size: 8px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-left: auto;
   white-space: nowrap;
 }
 .message p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   line-height: 1.9;
   margin-top: 13px;
   white-space: pre-wrap;
@@ -3130,8 +3130,8 @@ details p {
 }
 .simulated-label {
   display: block;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 12px;
 }
 .message-composer {
@@ -3148,18 +3148,18 @@ details p {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   padding: 3px 0;
 }
 .composer-tabs > button.active {
-  color: #667085;
+  color: var(--muted);
   font-weight: 550;
 }
 .message-composer > textarea {
   width: 100%;
   border-color: #e6ebed;
-  font-size: 11px;
+  font-size: 0.8125rem;
   padding: 12px 14px;
   min-height: 100px;
 }
@@ -3175,8 +3175,8 @@ details p {
   margin-top: 13px;
 }
 .composer-footer > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .inbox-back {
   display: none;
@@ -3192,7 +3192,7 @@ details p {
   margin-bottom: 22px;
 }
 .workflow-intro-icon {
-  color: #667085;
+  color: var(--muted);
   display: grid;
   place-items: center;
   width: 43px;
@@ -3206,18 +3206,18 @@ details p {
   flex: 1;
 }
 .workflow-intro h3 {
-  font-size: 14px;
+  font-size: 1rem;
   color: #5a7d65;
   font-weight: 550;
 }
 .workflow-intro p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-top: 5px;
   line-height: 1.8;
 }
 .workflow-intro > .badge {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .workflow-layout {
   display: grid;
@@ -3247,22 +3247,22 @@ details p {
   min-width: 0;
 }
 .workflow-nav strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
   display: block;
-  color: #667085;
+  color: var(--muted);
 }
 .workflow-nav small {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   display: block;
   margin-top: 5px;
 }
 .workflow-nav-icon {
-  color: #667085;
+  color: var(--muted);
 }
 .workflow-nav > button > svg {
-  color: #667085;
+  color: var(--muted);
 }
 .workflow-editor-top {
   display: flex;
@@ -3273,17 +3273,17 @@ details p {
   border-bottom: 1px solid var(--border);
 }
 .workflow-editor-top h2 {
-  font-size: 16px;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: #5d717a;
 }
 .workflow-editor-top p {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 4px;
 }
 .workflow-editor-top .eyebrow {
-  font-size: 8px;
+  font-size: 0.6875rem;
   margin-bottom: 5px;
 }
 .workflow-config {
@@ -3297,30 +3297,30 @@ details p {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   text-align: left;
 }
 .field label {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .field input:not([type="checkbox"]),
 .field select,
 .field textarea {
   width: 100%;
-  font-size: 12px;
+  font-size: 0.875rem;
   color: #657782;
 }
 .field-hint {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   line-height: 1.8;
   margin-top: 7px;
 }
 .field-error {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-top: 5px;
   line-height: 1.7;
 }
@@ -3332,13 +3332,13 @@ details p {
   gap: 10px;
 }
 .workflow-steps-header h3 {
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   font-weight: 550;
 }
 .workflow-steps-header > span {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .workflow-steps {
   padding: 0 24px;
@@ -3366,14 +3366,14 @@ details p {
 }
 .workflow-step-summary strong {
   display: block;
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 550;
-  color: #667085;
+  color: var(--muted);
 }
 .workflow-step-summary button > span {
   display: block;
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
   margin-top: 4px;
 }
 .step-number {
@@ -3383,13 +3383,13 @@ details p {
   place-items: center;
   border: 1px solid #e1e9e4;
   border-radius: 50%;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   flex-shrink: 0;
   background: #f6f9f6;
 }
 .workflow-step-summary .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .step-controls {
   display: flex;
@@ -3398,7 +3398,7 @@ details p {
 .step-controls .icon-action {
   width: 23px;
   height: 25px;
-  color: #667085;
+  color: var(--muted);
 }
 .step-controls svg {
   width: 13px;
@@ -3462,23 +3462,23 @@ details p {
   display: grid;
   place-items: center;
   background: #f0f6f1;
-  color: #667085;
+  color: var(--muted);
   flex-shrink: 0;
 }
 .version-history h3 {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .version-history p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-top: 7px;
 }
 .version-history small {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 5px;
   display: block;
 }
@@ -3500,12 +3500,12 @@ details p {
   flex-wrap: wrap;
 }
 .rule-statement strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .rule-statement .badge {
-  font-size: 8px;
+  font-size: 0.6875rem;
   min-width: 40px;
   justify-content: center;
 }
@@ -3513,18 +3513,18 @@ details p {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .rule-statement input {
   width: 53px;
   min-height: 27px;
   padding: 3px 8px;
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .rule-row p {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 13px;
   line-height: 1.8;
 }
@@ -3582,19 +3582,19 @@ details p {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-right: 10px;
 }
 .report-filters > label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .report-filters input {
-  font-size: 10px;
+  font-size: 0.75rem;
   min-height: 30px;
   padding: 5px 9px;
 }
@@ -3617,29 +3617,29 @@ details p {
   gap: 8px;
 }
 .report-kpis > div > span {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .report-kpis strong {
-  font-size: 28px;
+  font-size: 1.875rem;
   line-height: 1.4;
   letter-spacing: -1px;
   font-weight: 500;
   color: #4b626d;
 }
 .report-kpis em {
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   font-style: normal;
   letter-spacing: 0;
 }
 .report-kpis small,
 .report-kpis a {
-  font-size: 9px;
-  color: #667085;
+  font-size: 0.6875rem;
+  color: var(--muted);
 }
 .report-kpis a {
-  color: #667085;
+  color: var(--muted);
 }
 .reports-grid {
   display: grid;
@@ -3671,13 +3671,13 @@ details p {
   gap: 3px;
 }
 .donut-center strong {
-  font-size: 27px;
+  font-size: 1.8125rem;
   font-weight: 500;
   color: #607b70;
 }
 .donut-center span {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .chart-legend {
   min-width: 152px;
@@ -3690,8 +3690,8 @@ details p {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .chart-legend a > i {
   width: 7px;
@@ -3699,8 +3699,8 @@ details p {
   border-radius: 2px;
 }
 .chart-legend strong {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-left: auto;
   padding-left: 10px;
   font-weight: 550;
@@ -3716,13 +3716,13 @@ details p {
   border-top: 1px solid #edf1ef;
 }
 .delayed-steps > a > span:first-child {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .delayed-steps strong {
   font-weight: 500;
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   min-width: 200px;
   flex: 1;
 }
@@ -3747,15 +3747,15 @@ details p {
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  color: #667085;
+  color: var(--muted);
 }
 .report-schedule > h2 {
-  font-size: 19px;
-  color: #667085;
+  font-size: 1.3125rem;
+  color: var(--muted);
 }
 .report-schedule > p {
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   line-height: 1.9;
 }
 .report-schedule .field {
@@ -3776,14 +3776,14 @@ details p {
   border-radius: 4px;
 }
 .permission-table td {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .permission-table td:first-child {
   font-weight: 550;
-  color: #667085;
+  color: var(--muted);
 }
 .permission-check {
-  color: #667085;
+  color: var(--muted);
 }
 .permission-table + .notice {
   margin: 23px;
@@ -3814,7 +3814,7 @@ details p {
   height: 32px;
   display: grid;
   place-items: center;
-  color: #667085;
+  color: var(--muted);
   background: #f1f6f0;
   border-radius: 7px;
 }
@@ -3830,8 +3830,8 @@ details p {
   border-top: 1px solid var(--border);
 }
 .lifecycle-settings code {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   background: #f4f7f7;
   border: 1px solid #edf0f1;
   border-radius: 4px;
@@ -3858,18 +3858,18 @@ details p {
 .integration-card-top .integration-symbol {
   width: 42px;
   height: 42px;
-  font-size: 21px;
+  font-size: 1.4375rem;
 }
 .integration-card-top .badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .integration-card h2 {
-  font-size: 17px;
-  color: #667085;
+  font-size: 1.1875rem;
+  color: var(--muted);
 }
 .integration-card > p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   line-height: 1.8;
   margin-top: 10px;
   min-height: 40px;
@@ -3885,13 +3885,13 @@ details p {
   justify-content: space-between;
   gap: 10px;
   margin: 11px 0;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .integration-card dt {
-  color: #667085;
+  color: var(--muted);
 }
 .integration-card dd {
-  color: #667085;
+  color: var(--muted);
   margin: 0;
   white-space: nowrap;
 }
@@ -3909,24 +3909,24 @@ details p {
   display: flex;
   gap: 19px;
   align-items: center;
-  color: #667085;
+  color: var(--muted);
 }
 .demo-clock span {
   display: block;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-bottom: 7px;
 }
 .demo-clock strong {
   display: block;
-  font-size: 18px;
+  font-size: 1.25rem;
   letter-spacing: -0.4px;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .demo-clock small {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
   margin-top: 7px;
   display: block;
 }
@@ -3943,20 +3943,20 @@ details p {
   border: 1px dashed #cbded2;
   border-radius: 6px;
   background: #fafcf9;
-  color: #667085;
+  color: var(--muted);
 }
 .file-picker strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .file-picker span {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .file-picker input {
   width: 100%;
-  font-size: 10px;
+  font-size: 0.75rem;
   margin-top: 7px;
   background: white;
 }
@@ -3971,21 +3971,21 @@ details p {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
 }
 .import-summary p {
   margin: 12px 0;
-  color: #667085;
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 0.8125rem;
 }
 .import-summary > .btn {
   display: flex;
   margin-top: 18px;
 }
 .reset-panel .panel-padding > p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   margin-bottom: 20px;
   line-height: 1.8;
 }
@@ -4042,24 +4042,24 @@ details p {
   width: 27px;
   height: 27px;
   background: #f5f7f7;
-  color: #667085;
+  color: var(--muted);
   border-radius: 5px;
   z-index: 2;
 }
 .dialog-x:hover {
   background: #eef2f0;
-  color: #667085;
+  color: var(--muted);
 }
 .dialog-content h2 {
-  font-size: 21px;
+  font-size: 1.4375rem;
   letter-spacing: -0.6px;
   font-weight: 550;
   color: #3f5c64;
   padding-right: 25px;
 }
 .dialog-content [id$="description"] {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   line-height: 1.9;
   margin-top: 10px;
 }
@@ -4072,14 +4072,14 @@ details p {
   margin: 0;
 }
 .drawer-heading .eyebrow {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .dialog-content.drawer .drawer-heading h2 {
-  font-size: 22px;
+  font-size: 1.5rem;
 }
 .dialog-content.drawer .drawer-heading p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   line-height: 1.8;
   margin-top: 9px;
 }
@@ -4102,8 +4102,8 @@ details p {
   margin-top: 25px;
 }
 .form-footer > span {
-  font-size: 10px;
-  color: #667085;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 .drawer .form-footer {
   padding: 20px 25px;
@@ -4119,7 +4119,7 @@ details p {
   max-width: 430px;
 }
 .confirm-dialog .drawer-heading h2 {
-  font-size: 20px;
+  font-size: 1.375rem;
   line-height: 1.5;
 }
 .confirm-dialog .drawer-heading {
@@ -4137,22 +4137,22 @@ details p {
   background: #fffcf5;
   border-radius: 7px;
   padding: 18px;
-  color: #667085;
+  color: var(--muted);
   margin-bottom: 23px;
 }
 .blocker-list h3 {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 550;
   margin-bottom: 15px;
 }
 .blocker-list p {
   padding: 8px 0;
   border-top: 1px solid #f3ecdd;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   line-height: 1.8;
 }
 .approval-summary {
@@ -4160,18 +4160,18 @@ details p {
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.875rem;
   margin-top: 25px;
-  color: #667085;
+  color: var(--muted);
 }
 .approval-summary > span:nth-child(odd) {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
 }
 .approval-summary strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .wide-dialog {
   max-width: 760px;
@@ -4196,8 +4196,8 @@ details p {
   padding: 14px 5px;
   border-top: 1px solid #edf2f1;
   gap: 15px;
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
 }
 .search-results > a:hover {
   background: #f7faf7;
@@ -4212,7 +4212,7 @@ details p {
   white-space: nowrap;
 }
 .search-results .badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
   min-width: 49px;
   justify-content: center;
 }
@@ -4237,7 +4237,7 @@ details p {
   height: 30px;
   border-radius: 7px;
   background: #edf5ed;
-  color: #667085;
+  color: var(--muted);
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -4246,24 +4246,24 @@ details p {
   flex: 1;
 }
 .notification-list strong {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #667085;
+  color: var(--muted);
 }
 .notification-list p {
-  font-size: 11px;
+  font-size: 0.8125rem;
   line-height: 1.8;
-  color: #667085;
+  color: var(--muted);
   margin-top: 7px;
 }
 .notification-list small {
   display: block;
-  color: #667085;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 0.6875rem;
   margin-top: 9px;
 }
 .notification-list > button > svg {
-  color: #667085;
+  color: var(--muted);
   margin-top: 6px;
 }
 .guide-steps {
@@ -4276,9 +4276,9 @@ details p {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 11px;
+  font-size: 0.8125rem;
   line-height: 1.8;
-  color: #667085;
+  color: var(--muted);
 }
 .guide-steps > p > span {
   width: 20px;
@@ -4287,12 +4287,12 @@ details p {
   place-items: center;
   border-radius: 50%;
   background: #f0f5ef;
-  color: #667085;
+  color: var(--muted);
   flex-shrink: 0;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .guide-steps + .notice {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .import-drop {
   display: flex;
@@ -4303,21 +4303,21 @@ details p {
   border-radius: 8px;
   background: #f9fcf8;
   padding: 40px 30px;
-  color: #667085;
+  color: var(--muted);
 }
 .import-drop h3 {
-  font-size: 17px;
-  color: #667085;
+  font-size: 1.1875rem;
+  color: var(--muted);
 }
 .import-drop p {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   text-align: center;
   line-height: 1.8;
 }
 .import-drop input {
   background: #fff;
-  font-size: 11px;
+  font-size: 0.8125rem;
   max-width: 100%;
 }
 .mapping-grid {
@@ -4337,10 +4337,10 @@ details p {
 }
 .import-preview td {
   padding: 12px;
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .import-preview .field-error {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .document-preview-dialog {
   max-width: 1000px;
@@ -4361,7 +4361,7 @@ details p {
   transform: scale(1.2);
 }
 .boot > p {
-  font-size: 11px;
+  font-size: 0.8125rem;
   color: #94a5b4;
 }
 .boot-line {
@@ -4396,11 +4396,11 @@ details p {
   color: var(--navy);
 }
 .recovery h1 {
-  font-size: 24px;
+  font-size: 1.625rem;
 }
 .recovery p {
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   line-height: 1.9;
 }
 .recovery > input {
@@ -4442,263 +4442,263 @@ details p {
 }
 /* Keep supporting text readable at common desktop sizes. */
 .nav-group > p {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .nav-item {
-  font-size: 12px;
+  font-size: 0.875rem;
   min-height: 38px;
 }
 .nav-item > svg {
   width: 17px;
 }
 .workspace-label {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .workspace-label span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .sidebar-person strong {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .sidebar-person div > span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .workspace-status {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .help-link {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .breadcrumb {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .global-search {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .scopebar-copy {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .scope-controls select,
 .persona-select > span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .demo-badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .page-description {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .section-heading h2 {
-  font-size: 14px;
+  font-size: 1rem;
 }
 .section-heading p,
 .panel-intro {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .metric-top > span {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .metric-bottom {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .welcome-copy p {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .welcome-copy > a {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .welcome-eyebrow {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .stage-overview-title {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .stage-overview-item > p {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .stage-overview-item > p > span {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .stage-number {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .stage-total > span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .dashboard-table th {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .dashboard-table td {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .dashboard-table .task-title-button strong {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .dashboard-table .task-title-button small {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .dashboard-table .person {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .dashboard-table .badge {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .handoff-item strong {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .handoff-item div > span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .handoff-item small {
-  font-size: 9px;
+  font-size: 0.6875rem;
 }
 .handoff-note {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .attention-list strong,
 .review-list strong,
 .milestone-preview strong {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .attention-list p,
 .review-list p,
 .milestone-preview p {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .attention-list .stage-badge {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .review-list > button {
   padding-top: 14px;
   padding-bottom: 14px;
 }
 .date-tile > span {
-  font-size: 8px;
+  font-size: 0.6875rem;
 }
 .date-tile > strong {
-  font-size: 14px;
+  font-size: 1rem;
 }
 .date-tile {
   width: 35px;
 }
 .department-pulse > a {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .table-toolbar .search-input input {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .data-table th {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .data-table td {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .data-table small {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .table-footer {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .toolbar-filters select {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .btn {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .btn-sm {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .badge {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .stage-badge {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .field,
 .field label {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .field-hint {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .dialog-content [id$="description"] {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .dialog-content.drawer .drawer-heading p {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .message p {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .message-heading strong {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .message-heading > time {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .thread-list strong {
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .thread-list p {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .thread-item-top {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .composer-footer > span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .message-composer > textarea {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .workflow-step-summary strong {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .workflow-step-summary button > span {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .workflow-nav strong {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .workflow-nav small {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .rule-row p {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .report-kpis > div > span {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .report-kpis small,
 .report-kpis a {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .chart-legend a {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .pipeline-location {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .pipeline-column-sub {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .pipeline-next {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .pipeline-firm-name {
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .pipeline-card-bottom > span:first-child {
-  font-size: 10px;
+  font-size: 0.75rem;
 }
 .integration-card dl > div {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .integration-card > p {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .notice {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 @media (min-width: 1600px) {
   .main-content {
@@ -4719,7 +4719,7 @@ details p {
     padding: 28px 32px;
   }
   .welcome-copy h2 {
-    font-size: 29px;
+    font-size: 1.9375rem;
   }
   .welcome-visual {
     width: 400px;
@@ -4760,7 +4760,7 @@ details p {
     padding-left: 22px;
   }
   .brand > span {
-    font-size: 28px;
+    font-size: 1.875rem;
   }
   .sidebar .brand svg {
     width: 26px;
@@ -4783,7 +4783,7 @@ details p {
     padding: 15px 14px;
   }
   .metric-bottom {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .dashboard-main-grid {
     grid-template-columns: minmax(0, 1fr) 280px;
@@ -4796,7 +4796,7 @@ details p {
     padding: 0 15px;
   }
   .stage-overview-title {
-    font-size: 10px;
+    font-size: 0.75rem;
     gap: 5px;
   }
   .stage-overview-item > p > span {
@@ -4849,7 +4849,7 @@ details p {
     padding: 13px 11px;
   }
   .workflow-step-summary strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .step-controls .icon-action {
     width: 20px;
@@ -4858,10 +4858,10 @@ details p {
     padding: 20px;
   }
   .workflow-editor-top h2 {
-    font-size: 15px;
+    font-size: 1.0625rem;
   }
   .workflow-editor-top > .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .inbox {
     grid-template-columns: 280px minmax(0, 1fr);
@@ -4870,10 +4870,10 @@ details p {
     padding: 18px;
   }
   .thread-header h2 {
-    font-size: 13px;
+    font-size: 0.9375rem;
   }
   .thread-header .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .message-heading .badge {
     display: none;
@@ -4894,13 +4894,13 @@ details p {
     min-width: 135px;
   }
   .chart-legend a {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .report-kpis > div {
     padding: 18px;
   }
   .page-heading .date-pill {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .page-heading {
     gap: 15px;
@@ -4909,7 +4909,7 @@ details p {
     gap: 8px;
   }
   .firm-detail-heading > .heading-actions .btn {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
 }
 @media (max-width: 1100px) {
@@ -4924,14 +4924,14 @@ details p {
     padding-right: 15px;
   }
   .brand > span {
-    font-size: 25px;
+    font-size: 1.6875rem;
   }
   .brand small {
-    font-size: 7px;
+    font-size: 0.6875rem;
     letter-spacing: 2.6px;
   }
   .nav-item {
-    font-size: 11px;
+    font-size: 0.8125rem;
     gap: 8px;
     padding-left: 10px;
     padding-right: 8px;
@@ -4946,7 +4946,7 @@ details p {
   }
   .workspace-status {
     margin-left: 18px;
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .main-content {
     padding: 24px 20px;
@@ -4957,7 +4957,7 @@ details p {
     padding-right: 20px;
   }
   .page-heading h1 {
-    font-size: 25px;
+    font-size: 1.6875rem;
   }
   .page-heading {
     align-items: flex-start;
@@ -4966,26 +4966,26 @@ details p {
     display: none;
   }
   .welcome-copy h2 {
-    font-size: 24px;
+    font-size: 1.625rem;
   }
   .welcome-visual {
     width: 250px;
     margin-right: -15px;
   }
   .metric-top > span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .metric-icon {
     width: 25px;
     height: 25px;
   }
   .metric-bottom {
-    font-size: 8px;
+    font-size: 0.6875rem;
     white-space: normal;
     min-height: 25px;
   }
   .metric-value > strong {
-    font-size: 29px;
+    font-size: 1.9375rem;
   }
   .mini-bars {
     width: 53px;
@@ -4997,7 +4997,7 @@ details p {
     padding: 0 11px;
   }
   .stage-overview-title {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .stage-overview-title .stage-number {
     display: none;
@@ -5077,7 +5077,7 @@ details p {
   }
   .project-summary > p {
     margin-left: 20px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .detail-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -5089,7 +5089,7 @@ details p {
     align-items: start;
   }
   .detail-grid .primary-contact > a {
-    font-size: 9px;
+    font-size: 0.6875rem;
     overflow-wrap: anywhere;
   }
   .primary-contact {
@@ -5100,7 +5100,7 @@ details p {
     padding-right: 15px;
   }
   .detail-grid > aside .section-heading h2 {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .integration-refs {
     padding-left: 15px;
@@ -5109,13 +5109,13 @@ details p {
   .integration-refs .integration-symbol {
     width: 26px;
     height: 26px;
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .integration-refs > div {
     gap: 7px;
   }
   .integration-refs small {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .firm-detail-heading {
     flex-wrap: wrap;
@@ -5131,10 +5131,10 @@ details p {
     display: none;
   }
   .firm-stage-rail strong {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .firm-stage-rail small {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .firm-stage-rail > div > span {
     height: 22px;
@@ -5150,10 +5150,10 @@ details p {
     gap: 7px;
   }
   .workflow-nav strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-nav small {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .workflow-nav-icon svg {
     width: 15px;
@@ -5176,10 +5176,10 @@ details p {
     display: none;
   }
   .workflow-step-summary strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-step-summary button > span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .workflow-step-summary .step-number {
     width: 20px;
@@ -5222,7 +5222,7 @@ details p {
   .message > .avatar {
     width: 23px;
     height: 23px;
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .message-content {
     padding: 12px;
@@ -5232,7 +5232,7 @@ details p {
     gap: 4px;
   }
   .message p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .message-composer {
     padding: 15px;
@@ -5247,10 +5247,10 @@ details p {
     gap: 12px;
   }
   .report-kpis > div > span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .report-kpis strong {
-    font-size: 25px;
+    font-size: 1.6875rem;
   }
   .report-filters {
     gap: 10px;
@@ -5316,7 +5316,7 @@ details p {
     grid-template-columns: 25px 1fr;
   }
   .document-summary > p {
-    font-size: 9px;
+    font-size: 0.6875rem;
     padding-left: 15px;
   }
   .contact-summary {
@@ -5337,7 +5337,7 @@ details p {
     gap: 20px;
   }
   .tab-trigger {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .review-row {
     flex-wrap: wrap;
@@ -5368,10 +5368,10 @@ details p {
     z-index: 39;
   }
   .brand > span {
-    font-size: 29px;
+    font-size: 1.9375rem;
   }
   .nav-item {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .topbar {
     padding: 0 20px;
@@ -5391,10 +5391,10 @@ details p {
   }
   .scope-controls select {
     max-width: 165px;
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .demo-badge {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .main-content {
     padding: 22px 20px;
@@ -5403,7 +5403,7 @@ details p {
     margin-bottom: 20px;
   }
   .page-description {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .welcome-banner {
     min-height: 195px;
@@ -5412,7 +5412,7 @@ details p {
     padding: 22px;
   }
   .welcome-copy h2 {
-    font-size: 25px;
+    font-size: 1.6875rem;
   }
   .welcome-visual {
     width: 235px;
@@ -5424,31 +5424,31 @@ details p {
     padding: 15px 14px;
   }
   .metric-bottom {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .stage-overview-title {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .stage-overview-item {
     padding: 0 15px;
   }
   .stage-overview-item > p {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .sidebar-person div > span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .app-footer {
     padding: 15px 20px;
   }
   .app-footer > span {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .sidebar .workspace-status {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .sidebar .brand small {
-    font-size: 8px;
+    font-size: 0.6875rem;
     letter-spacing: 3px;
   }
   .directory-stats > div {
@@ -5478,7 +5478,7 @@ details p {
 }
 @media (max-width: 620px) {
   h1 {
-    font-size: 24px;
+    font-size: 1.625rem;
   }
   .main-content {
     padding: 22px 16px;
@@ -5509,7 +5509,7 @@ details p {
     align-items: center;
   }
   .demo-badge {
-    font-size: 7px;
+    font-size: 0.6875rem;
     letter-spacing: 0.7px;
     gap: 4px;
   }
@@ -5517,7 +5517,7 @@ details p {
     gap: 5px;
   }
   .scope-controls select {
-    font-size: 9px;
+    font-size: 0.6875rem;
     max-width: 145px;
     padding-right: 17px;
   }
@@ -5533,7 +5533,7 @@ details p {
     gap: 15px;
   }
   .page-heading h1 {
-    font-size: 25px;
+    font-size: 1.6875rem;
   }
   .heading-actions {
     width: 100%;
@@ -5541,10 +5541,10 @@ details p {
     gap: 8px;
   }
   .heading-actions > .btn {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .page-description {
-    font-size: 11px;
+    font-size: 0.8125rem;
     line-height: 1.8;
     max-width: 350px;
   }
@@ -5555,16 +5555,16 @@ details p {
     padding: 23px 20px;
   }
   .welcome-copy h2 {
-    font-size: 24px;
+    font-size: 1.625rem;
     max-width: 320px;
   }
   .welcome-copy p {
-    font-size: 10px;
+    font-size: 0.75rem;
     max-width: 260px;
     line-height: 1.8;
   }
   .welcome-eyebrow {
-    font-size: 8px;
+    font-size: 0.6875rem;
     letter-spacing: 1.2px;
   }
   .welcome-visual {
@@ -5575,7 +5575,7 @@ details p {
     transform: scale(0.8);
   }
   .welcome-copy > a {
-    font-size: 11px;
+    font-size: 0.8125rem;
     position: relative;
     z-index: 2;
   }
@@ -5584,16 +5584,16 @@ details p {
     gap: 12px;
   }
   .metric-top > span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .metric-value {
     height: 46px;
   }
   .metric-value > strong {
-    font-size: 30px;
+    font-size: 2rem;
   }
   .metric-bottom {
-    font-size: 8px;
+    font-size: 0.6875rem;
     min-height: 24px;
     align-items: flex-start;
   }
@@ -5608,14 +5608,14 @@ details p {
     padding: 19px 17px 16px;
   }
   .section-heading h2 {
-    font-size: 13px;
+    font-size: 0.9375rem;
   }
   .section-heading p {
-    font-size: 10px;
+    font-size: 0.75rem;
     line-height: 1.8;
   }
   .section-heading .view-link {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .stage-overview {
     overflow-x: auto;
@@ -5626,13 +5626,13 @@ details p {
     padding: 0 17px;
   }
   .stage-overview-title {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .stage-overview-item > p > span {
     display: none;
   }
   .stage-total > strong {
-    font-size: 27px;
+    font-size: 1.8125rem;
   }
   .dashboard-main-grid {
     gap: 0;
@@ -5649,7 +5649,7 @@ details p {
   }
   .dashboard-table th,
   .dashboard-table td {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .dashboard-table td:first-child,
   .dashboard-table th:first-child {
@@ -5671,7 +5671,7 @@ details p {
     padding: 15px 17px;
   }
   .handoff-item strong {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .attention-list > a,
   .review-list > button,
@@ -5681,7 +5681,7 @@ details p {
   .attention-list strong,
   .review-list strong,
   .milestone-preview strong {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .review-list .avatar {
     display: flex;
@@ -5696,7 +5696,7 @@ details p {
     padding: 0 17px 15px;
   }
   .department-pulse > a {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .app-footer {
     padding: 16px;
@@ -5704,7 +5704,7 @@ details p {
     gap: 7px;
   }
   .app-footer > span {
-    font-size: 8px;
+    font-size: 0.6875rem;
   }
   .directory-stats {
     grid-template-columns: repeat(2, 1fr);
@@ -5718,10 +5718,10 @@ details p {
     border-right: 0;
   }
   .directory-stats strong {
-    font-size: 24px;
+    font-size: 1.625rem;
   }
   .directory-stats span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .table-toolbar {
     padding: 15px 17px;
@@ -5736,42 +5736,42 @@ details p {
     width: 100%;
   }
   .toolbar-filters select {
-    font-size: 10px;
+    font-size: 0.75rem;
     max-width: 100%;
     min-height: 32px;
     padding: 6px 23px 6px 8px;
   }
   .toolbar-filters .check-label {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .toolbar-filters .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .table-footer {
     padding: 13px 17px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .pagination {
     gap: 5px;
   }
   .pagination > span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .directory-tabs {
     padding: 0 17px;
     gap: 20px;
   }
   .directory-tabs > button {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .data-table td,
   .data-table th {
     padding-left: 17px;
     padding-right: 17px;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .data-table th {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .contact-summary {
     grid-template-columns: repeat(2, 1fr);
@@ -5782,10 +5782,10 @@ details p {
     gap: 12px;
   }
   .contact-summary strong {
-    font-size: 23px !important;
+    font-size: 1.5625rem !important;
   }
   .contact-summary small {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .contact-summary .metric-icon {
     width: 34px;
@@ -5795,7 +5795,7 @@ details p {
     padding: 13px 17px;
     gap: 10px;
     flex-wrap: wrap;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .bulk-toolbar select {
     max-width: 220px;
@@ -5810,10 +5810,10 @@ details p {
     min-width: 100%;
   }
   .pipeline-toolbar .check-label {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .view-toggle > button {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .pipeline-board {
     grid-template-columns: repeat(5, 250px);
@@ -5823,7 +5823,7 @@ details p {
     max-height: 75vh;
   }
   .pipeline-info {
-    font-size: 10px;
+    font-size: 0.75rem;
     align-items: flex-start;
     line-height: 1.8;
   }
@@ -5841,14 +5841,14 @@ details p {
     border: 0;
   }
   .project-summary strong {
-    font-size: 24px;
+    font-size: 1.625rem;
   }
   .project-summary span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .project-summary > p {
     margin: 0;
-    font-size: 10px;
+    font-size: 0.75rem;
     max-width: none;
   }
   .projects-grid {
@@ -5860,22 +5860,22 @@ details p {
   }
   .project-card h3 {
     min-height: 0;
-    font-size: 16px;
+    font-size: 1.125rem;
   }
   .project-card > .eyebrow {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .project-card > p {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .project-card-footer .person {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .project-card-footer > span:last-child {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .project-progress-label {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .project-detail-meta {
     grid-template-columns: repeat(2, 1fr);
@@ -5883,10 +5883,10 @@ details p {
     gap: 23px;
   }
   .project-detail-meta > div > span:first-child {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .project-detail-meta strong {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .milestone-list {
     flex-direction: column;
@@ -5919,7 +5919,7 @@ details p {
   .firm-monogram-lg {
     width: 49px;
     height: 49px;
-    font-size: 25px;
+    font-size: 1.6875rem;
   }
   .firm-detail-heading > div:nth-child(2) {
     min-width: 0;
@@ -5931,15 +5931,15 @@ details p {
     margin-bottom: 9px;
   }
   .firm-title-line h1 {
-    font-size: 22px;
+    font-size: 1.5rem;
   }
   .firm-title-line .badge {
-    font-size: 8px;
+    font-size: 0.6875rem;
     padding: 3px 5px;
   }
   .firm-detail-heading p {
     gap: 8px;
-    font-size: 9px;
+    font-size: 0.6875rem;
     flex-wrap: wrap;
   }
   .firm-detail-heading p > span + span {
@@ -5959,10 +5959,10 @@ details p {
     padding: 0 10px;
   }
   .firm-stage-rail strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .firm-stage-rail small {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .firm-stage-rail > div > span {
     width: 24px;
@@ -5973,7 +5973,7 @@ details p {
     margin-bottom: 21px;
   }
   .tab-trigger {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .detail-grid > aside {
     grid-template-columns: 1fr;
@@ -5984,22 +5984,22 @@ details p {
     gap: 23px 15px;
   }
   .overview-details > div > span:first-child {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .overview-details strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .primary-contact {
     padding: 5px 23px 25px;
   }
   .primary-contact > a {
-    font-size: 11px !important;
+    font-size: 0.8125rem !important;
   }
   .integration-refs {
     padding: 0 20px 20px;
   }
   .integration-refs small {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .cadence-list {
     padding: 0 20px 20px;
@@ -6008,7 +6008,7 @@ details p {
     padding: 16px 17px;
   }
   .checklist-preview > button > span:nth-child(2) {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .panel-padding {
     padding-left: 17px;
@@ -6024,15 +6024,15 @@ details p {
     min-width: calc(100% - 35px);
   }
   .checklist-body h3 {
-    font-size: 12px;
+    font-size: 0.875rem;
     flex-wrap: wrap;
     gap: 7px;
   }
   .checklist-body p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .checklist-meta {
-    font-size: 9px;
+    font-size: 0.6875rem;
     gap: 9px;
   }
   .checklist-actions {
@@ -6050,10 +6050,10 @@ details p {
     gap: 13px;
   }
   .review-row h3 {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .review-row p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .document-summary {
     padding: 20px 17px;
@@ -6078,12 +6078,12 @@ details p {
     margin-bottom: 5px;
   }
   .document-summary span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .document-summary > p {
     padding: 0;
     min-width: 100%;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .inbox {
     display: block;
@@ -6124,19 +6124,19 @@ details p {
     min-width: 230px;
   }
   .thread-header h2 {
-    font-size: 13px;
+    font-size: 0.9375rem;
     white-space: normal;
   }
   .thread-header > .btn {
     margin-left: 38px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .thread-header > div > div {
-    font-size: 9px;
+    font-size: 0.6875rem;
     flex-wrap: wrap;
   }
   .thread-participants {
-    font-size: 9px;
+    font-size: 0.6875rem;
     padding: 10px 17px;
   }
   .message-content {
@@ -6146,28 +6146,28 @@ details p {
     padding: 20px 14px;
   }
   .message p {
-    font-size: 11px;
+    font-size: 0.8125rem;
     line-height: 1.9;
   }
   .message-heading > time {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .message-composer {
     padding: 14px 17px;
   }
   .composer-footer > span {
-    font-size: 9px;
+    font-size: 0.6875rem;
     max-width: 160px;
   }
   .composer-footer .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .message-composer > textarea {
     min-height: 85px;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .composer-tabs > button {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-layout {
     display: flex;
@@ -6198,10 +6198,10 @@ details p {
     display: none;
   }
   .workflow-nav small {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .workflow-nav strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-layout > div {
     width: 100%;
@@ -6212,10 +6212,10 @@ details p {
     align-items: flex-start;
   }
   .workflow-intro h3 {
-    font-size: 13px;
+    font-size: 0.9375rem;
   }
   .workflow-intro p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-intro-icon {
     width: 33px;
@@ -6230,7 +6230,7 @@ details p {
     gap: 14px;
   }
   .workflow-editor-top h2 {
-    font-size: 16px;
+    font-size: 1.125rem;
   }
   .workflow-config {
     padding: 20px 17px;
@@ -6238,10 +6238,10 @@ details p {
     gap: 13px;
   }
   .workflow-config .field {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .workflow-config input {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-steps-header {
     padding: 19px 17px 14px;
@@ -6249,7 +6249,7 @@ details p {
     gap: 5px;
   }
   .workflow-steps-header > span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .workflow-steps {
     padding: 0 14px;
@@ -6262,10 +6262,10 @@ details p {
     min-width: 0;
   }
   .workflow-step-summary strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-step-summary button > span {
-    font-size: 9px;
+    font-size: 0.6875rem;
     line-height: 1.7;
   }
   .step-controls {
@@ -6284,23 +6284,23 @@ details p {
     gap: 18px 13px;
   }
   .workflow-step-fields .field {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .workflow-step-fields input:not([type="checkbox"]),
   .workflow-step-fields select,
   .workflow-step-fields textarea {
-    font-size: 11px;
+    font-size: 0.8125rem;
     padding: 8px;
   }
   .workflow-step-fields .check-label {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .workflow-editor-footer {
     padding: 18px 14px;
     gap: 13px;
   }
   .workflow-editor-footer .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .workflow-editor-footer > div {
     gap: 8px;
@@ -6317,13 +6317,13 @@ details p {
     margin-left: 45px;
   }
   .rule-statement strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .rule-statement {
     gap: 7px;
   }
   .rule-row p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .report-filters {
     padding: 17px;
@@ -6335,15 +6335,15 @@ details p {
   }
   .report-filters input {
     max-width: 130px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .report-filters > label {
-    font-size: 9px;
+    font-size: 0.6875rem;
     gap: 5px;
   }
   .report-filters > .badge {
     margin-top: 5px;
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .report-kpis {
     grid-template-columns: repeat(2, 1fr);
@@ -6354,17 +6354,17 @@ details p {
     gap: 7px;
   }
   .report-kpis > div > span {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .report-kpis strong {
-    font-size: 27px;
+    font-size: 1.8125rem;
   }
   .report-kpis small {
-    font-size: 9px;
+    font-size: 0.6875rem;
     line-height: 1.8;
   }
   .report-kpis a {
-    font-size: 10px;
+    font-size: 0.75rem;
     line-height: 1.8;
   }
   .reports-grid {
@@ -6374,10 +6374,10 @@ details p {
     min-width: 125px;
   }
   .chart-legend a {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .chart-legend strong {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .chart-padding {
     padding-right: 15px;
@@ -6387,10 +6387,10 @@ details p {
     padding-right: 17px;
   }
   .donut-center strong {
-    font-size: 24px;
+    font-size: 1.625rem;
   }
   .donut-center span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .delayed-steps {
     padding: 0 17px 15px;
@@ -6400,14 +6400,14 @@ details p {
     flex-wrap: wrap;
   }
   .delayed-steps strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
     min-width: 160px;
   }
   .delayed-steps > a > div {
     display: none;
   }
   .delayed-steps .badge {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .departments-settings {
     grid-template-columns: 1fr;
@@ -6434,15 +6434,15 @@ details p {
     gap: 13px;
   }
   .lifecycle-settings .field {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .lifecycle-settings input {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .lifecycle-settings + .notice {
     margin-left: 17px;
     margin-right: 17px;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .integration-card {
     display: block;
@@ -6459,19 +6459,19 @@ details p {
     gap: 16px;
   }
   .demo-clock strong {
-    font-size: 16px;
+    font-size: 1.125rem;
   }
   .demo-clock small {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .demo-settings-grid .section-heading p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .file-picker {
     padding: 20px 14px;
   }
   .file-picker span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .dialog-content {
     padding: 24px 20px;
@@ -6480,7 +6480,7 @@ details p {
     border-radius: 9px;
   }
   .dialog-content h2 {
-    font-size: 20px;
+    font-size: 1.375rem;
   }
   .dialog-content.drawer {
     width: 100%;
@@ -6498,34 +6498,34 @@ details p {
   }
   .field label,
   .field {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .field input:not([type="checkbox"]),
   .field textarea,
   .field select {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .field-hint {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .form-footer > span {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .form-footer .btn {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .signature-actions {
     gap: 9px;
   }
   .signature-actions > .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .document-dialog-toolbar {
     gap: 8px;
     flex-wrap: wrap;
   }
   .document-dialog-toolbar .btn {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .signer-list > div {
     flex-wrap: wrap;
@@ -6534,18 +6534,18 @@ details p {
   .signer-list > div > span:last-child {
     width: 100%;
     padding-left: 38px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .signer-list strong {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .document-events p {
-    font-size: 10px;
+    font-size: 0.75rem;
     gap: 10px;
     flex-wrap: wrap;
   }
   .document-events small {
-    font-size: 9px;
+    font-size: 0.6875rem;
   }
   .file-preview {
     height: 60vh;
@@ -6554,31 +6554,31 @@ details p {
     gap: 17px 13px;
   }
   .mapping-grid select {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .import-drop {
     padding: 30px 17px;
   }
   .import-drop p {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .import-preview td {
     padding: 10px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .search-results > a {
-    font-size: 11px;
+    font-size: 0.8125rem;
     padding: 14px 0;
   }
   .search-results .badge {
-    font-size: 8px;
+    font-size: 0.6875rem;
     min-width: 40px;
   }
   .search-results > a > span {
     gap: 8px;
   }
   .notice {
-    font-size: 11px;
+    font-size: 0.8125rem;
     gap: 9px;
     padding: 13px;
   }
@@ -6588,17 +6588,17 @@ details p {
   .storage-error {
     padding: 12px 17px;
     flex-wrap: wrap;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .recovery {
     margin: 30px 15px;
     padding: 25px;
   }
   .approval-summary {
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .confirm-dialog .drawer-heading h2 {
-    font-size: 20px;
+    font-size: 1.375rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -6616,8 +6616,8 @@ details p {
   gap: 27px;
   margin: -2px 0 21px;
   padding: 4px 0 0;
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   flex-wrap: wrap;
 }
 .personal-focus > span {
@@ -6634,7 +6634,7 @@ details p {
 }
 .personal-focus strong {
   color: #476e60;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 .personal-focus a:hover {
@@ -6649,7 +6649,7 @@ details p {
 .task-discussion > h3 {
   margin-bottom: 15px;
   color: #5c727e;
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .task-discussion > div:last-child {
   display: flex;
@@ -6668,18 +6668,18 @@ details p {
   display: flex;
   justify-content: space-between;
   gap: 13px;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: #5b796a;
 }
 .task-comment small {
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 400;
-  color: #667085;
+  color: var(--muted);
 }
 .task-comment p {
-  font-size: 12px;
-  color: #667085;
+  font-size: 0.875rem;
+  color: var(--muted);
   line-height: 1.8;
   white-space: pre-wrap;
   margin-top: 8px;
@@ -6696,7 +6696,7 @@ details p {
 .json-text {
   width: 100%;
   font-family: monospace;
-  font-size: 11px !important;
+  font-size: 0.8125rem !important;
   line-height: 1.6;
   max-height: 50vh;
 }
@@ -6706,14 +6706,14 @@ details p {
 @media (max-width: 620px) {
   .personal-focus {
     gap: 10px 18px;
-    font-size: 10px;
+    font-size: 0.75rem;
   }
   .personal-focus > span {
     width: 100%;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
   .personal-focus strong {
-    font-size: 12px;
+    font-size: 0.875rem;
   }
   .personal-focus > a {
     gap: 5px;
@@ -6759,11 +6759,11 @@ details p {
 .quick-add-options span {
   flex: 1;
   color: #4d6c5e;
-  font-size: 13px;
+  font-size: 0.9375rem;
 }
 .quick-add-options small {
-  font-size: 11px;
-  color: #667085;
+  font-size: 0.8125rem;
+  color: var(--muted);
   display: block;
   margin-top: 7px;
   font-weight: 400;
@@ -6779,6 +6779,301 @@ details p {
     padding: 16px;
   }
   .quick-add-options small {
-    font-size: 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Shared visual hierarchy: readable type, clear surfaces, and focused accents. */
+h1,
+h2,
+h3,
+h4,
+.section-heading h2,
+.workflow-editor-top h2,
+.workflow-steps-header h3,
+.workflow-step-summary strong,
+.workflow-nav strong,
+.task-title-button strong,
+.table-firm strong,
+.table-person strong,
+.thread-list strong,
+.attention-list strong,
+.review-list strong,
+.milestone-preview strong,
+.integration-card h2,
+.dialog-content h2 {
+  color: var(--text);
+}
+.panel,
+.metric-card {
+  box-shadow:
+    0 2px 6px #16334c05,
+    0 8px 24px #16334c03;
+}
+.section-heading h2,
+.metric-top > span,
+.field label {
+  font-weight: 600;
+}
+.btn {
+  min-height: 40px;
+}
+.btn-sm {
+  min-height: 34px;
+}
+.btn-icon {
+  min-height: 34px;
+  width: 34px;
+  height: 34px;
+}
+.btn-primary {
+  box-shadow: 0 2px 4px #065f4626;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #06685e;
+}
+.btn-secondary {
+  border-color: #ced9e3;
+  color: #34495e;
+}
+input,
+select,
+textarea {
+  border-color: #cad6e1;
+}
+.field input:not([type="checkbox"]),
+.field select,
+.field textarea {
+  color: var(--text);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px #087f731c;
+}
+.text-link,
+.view-link,
+.personal-focus strong {
+  color: #07766b;
+}
+.nav-item {
+  font-weight: 500;
+}
+.nav-item.active {
+  background: #167c7033;
+  color: #f0fdf9;
+}
+.nav-item.active > svg {
+  color: #6ee7c4;
+}
+.nav-item.active:before {
+  background: #5ee0ba;
+}
+.nav-count {
+  color: #d2e0ed;
+}
+.nav-group > p {
+  color: #97a8bd;
+}
+.workspace-label span,
+.sidebar-person div > span {
+  color: #9aabba;
+}
+.welcome-banner {
+  background: #0c514d;
+  border-color: #12675e;
+  box-shadow: 0 4px 16px #104e4b12;
+}
+.welcome-copy h2 {
+  color: #fff;
+}
+.welcome-eyebrow {
+  color: #a8e5d3;
+}
+.welcome-eyebrow i {
+  background: #6ee7b7;
+}
+.welcome-copy p {
+  color: #d1e8e2;
+}
+.welcome-copy > a {
+  color: #a2f3d7;
+}
+.welcome-copy > a:hover {
+  color: #fff;
+}
+.orbital {
+  border-color: #ffffff20;
+}
+.orbit-line {
+  background: #ffffff20;
+}
+.orbit-center {
+  background: #23756a;
+  border-color: #63b7a680;
+  box-shadow: 0 12px 32px #002e3726;
+}
+.orbit-center svg {
+  color: #c7f8e5;
+}
+.orbit-node {
+  background: #155e56;
+  border-color: #69bda680;
+  color: #b6f4dd;
+}
+.visual-label {
+  color: #b7d9d0;
+}
+.metric-top > span {
+  color: #34495e;
+}
+.metric-bottom {
+  white-space: normal;
+  min-height: 30px;
+  align-items: flex-start;
+}
+.metric-bottom > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.icon-teal {
+  color: #04796b;
+  background: #dcf5ec;
+  border-color: #bfe8da;
+}
+.icon-blue {
+  color: #3466bc;
+  background: #eaf1ff;
+  border-color: #d3e1fa;
+}
+.icon-amber {
+  color: #ad620c;
+  background: #fff3dc;
+  border-color: #f5dfb0;
+}
+.icon-green {
+  color: #28784d;
+  background: #e5f5e8;
+  border-color: #c9e7cf;
+}
+.badge-green,
+.badge-teal {
+  color: #146b4d;
+  background: #e4f5ec;
+  border-color: #bfe4d1;
+}
+.badge-red,
+.due-overdue,
+.due-overdue small,
+.field-error {
+  color: #b63838;
+}
+.badge-red {
+  background: #fff0ee;
+  border-color: #f3c9c3;
+}
+.badge-amber {
+  color: #955807;
+  background: #fff4dc;
+  border-color: #eed7a2;
+}
+.badge-blue {
+  color: #315fa7;
+  background: #eaf1ff;
+  border-color: #cddcf6;
+}
+.data-table th {
+  background: #f3f6fa;
+  color: #465b71;
+  font-weight: 600;
+}
+.data-table td {
+  color: #43576b;
+}
+.data-table tbody tr:hover {
+  background: #f2faf7;
+}
+.progress-track span {
+  background: #0e9b80;
+}
+.workflow-intro {
+  background: #e7f5ee;
+  border-color: #c6e4d6;
+}
+.workflow-intro h3 {
+  color: #16634c;
+}
+.workflow-intro-icon {
+  color: #087f73;
+  background: #fff;
+  border-color: #b9ddcc;
+}
+.workflow-nav > button.selected,
+.thread-list > button.selected {
+  background: #e8f6f0;
+  border-left-color: #087f73;
+}
+.workflow-nav > button.selected strong,
+.workflow-nav > button.selected svg {
+  color: #077467;
+}
+.workflow-step {
+  border-color: #d5e0e6;
+}
+.workflow-step.expanded {
+  border-color: #83baaa;
+}
+.workflow-step.expanded .workflow-step-summary {
+  background: #edf8f3;
+}
+.workflow-step-fields {
+  background: #f8fafc;
+  border-top-color: #dbe8e2;
+}
+.step-number {
+  color: #096c5d;
+  background: #e3f3ec;
+  border-color: #b8dccc;
+}
+.tab-trigger[data-state="active"] {
+  color: #087f73;
+  border-bottom-color: #087f73;
+  font-weight: 600;
+}
+.stage-overview-title {
+  white-space: normal;
+  color: #34495e;
+}
+.stage-overview-item > p {
+  flex-wrap: wrap;
+  white-space: normal;
+}
+.scopebar {
+  flex-wrap: wrap;
+}
+.scope-controls,
+.heading-actions {
+  flex-wrap: wrap;
+}
+.page-heading > div:first-child {
+  min-width: 0;
+}
+@media (max-width: 620px) {
+  .scope-controls {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  .scopebar {
+    gap: 6px;
+  }
+  .welcome-copy p {
+    line-height: 1.7;
+  }
+  .metric-top {
+    align-items: flex-start;
+  }
+  .metric-bottom {
+    min-height: 34px;
   }
 }

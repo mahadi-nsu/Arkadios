@@ -418,36 +418,58 @@ export function Firms() {
               Keep the current search, stage, and department filters.
             </DialogDescription>
           </div>
-          <label className="field">
-            View name
-            <input
-              value={viewName}
-              onChange={(e) => setViewName(e.target.value)}
-              placeholder="e.g. Operations onboarding"
-            />
-          </label>
-          <Button
-            disabled={!viewName.trim()}
-            onClick={() => {
-              run({
-                type: "view.save",
-                value: {
-                  id: uid("view"),
-                  name: viewName,
-                  entity: "firms",
-                  query,
-                  stage,
-                  departmentId,
-                  attention,
-                  archived,
-                },
-              });
-              setSaveOpen(false);
-              toast.success("View saved.");
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              const name = viewName.trim();
+              if (!name) return;
+              try {
+                run({
+                  type: "view.save",
+                  value: {
+                    id: uid("view"),
+                    name,
+                    entity: "firms",
+                    query,
+                    stage,
+                    departmentId,
+                    attention,
+                    archived,
+                  },
+                });
+                setSaveOpen(false);
+                setViewName("");
+                toast.success("View saved.");
+              } catch (error) {
+                toast.error(
+                  error instanceof Error
+                    ? error.message
+                    : "Could not save view.",
+                );
+              }
             }}
           >
-            Save view
-          </Button>
+            <label className="field">
+              View name
+              <input
+                value={viewName}
+                onChange={(event) => setViewName(event.target.value)}
+                placeholder="e.g. Operations onboarding"
+              />
+            </label>
+            <div className="confirm-actions">
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => setSaveOpen(false)}
+              >
+                Cancel
+              </Button>
+              <Button type="submit" disabled={!viewName.trim()}>
+                Save view
+              </Button>
+            </div>
+          </form>
         </DialogContent>
       </Dialog>
     </>

@@ -56,7 +56,7 @@ function MiniBars({
           style={{
             height: `${Math.max(8, (n / max) * 100)}%`,
             background: color,
-            opacity: 0.35 + i * 0.09,
+            opacity: 0.6 + i * 0.055,
           }}
         />
       ))}
@@ -114,7 +114,7 @@ export function Dashboard() {
       value: firms.length,
       sub: `${firms.filter((f) => f.stage === "relationship").length} in relationship management`,
       icon: Building2,
-      color: "#358c80",
+      color: "#0e9b80",
       href: "/firms",
       bars: counts.map((c) => c.value),
       tone: "teal",
@@ -124,7 +124,7 @@ export function Dashboard() {
       value: open.length,
       sub: `${tasks.filter((t) => dueThisWeek(d, t)).length} due in the next 7 days`,
       icon: ListTodo,
-      color: "#7690b9",
+      color: "#4b7bc7",
       href: "/tasks?status=open",
       bars: weekly,
       tone: "blue",
@@ -134,7 +134,7 @@ export function Dashboard() {
       value: late.length,
       sub: "A little attention goes a long way",
       icon: Clock3,
-      color: "#c88b48",
+      color: "#d38a26",
       href: "/tasks?overdue=true",
       bars: Array.from(
         { length: 7 },
@@ -149,7 +149,7 @@ export function Dashboard() {
       value: ready.length,
       sub: "Requirements complete. Next chapter ready.",
       icon: CheckCircle2,
-      color: "#789684",
+      color: "#348a59",
       href: "/pipeline?ready=true",
       bars: counts.map((c) => ready.filter((f) => f.stage === c.stage).length),
       tone: "green",
