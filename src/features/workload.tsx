@@ -168,7 +168,7 @@ export function Workload() {
             {dep ? d.departments[dep].name : "Organization-wide"}
           </Badge>
         </div>
-        <DataTable data={rows} columns={columns} />
+        <DataTable preferenceKey="workload" data={rows} columns={columns} />
       </section>
       <div className="notice">
         <UsersRound size={19} />

@@ -358,7 +358,7 @@ export function Tasks({
             </Button>
           </div>
         )}
-        <DataTable data={tasks} columns={columns} />
+        <DataTable preferenceKey="tasks" data={tasks} columns={columns} />
       </section>
     </>
   );

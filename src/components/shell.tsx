@@ -44,6 +44,7 @@ import {
 } from "./ui/dialog";
 import { EditorProvider, useEditor } from "./editors";
 import { ConfirmProvider, useConfirm } from "./confirm";
+import { UnsavedChangesProvider, useDiscardChanges } from "./unsaved-changes";
 const navigation = [
   {
     label: "WORKSPACE",
@@ -86,45 +87,47 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
   return (
     <ConfirmProvider>
-      <Toaster position="bottom-right" richColors closeButton />
-      {!hydrated ? (
-        <div className="boot">
-          <Brand />
-          <div className="boot-line" />
-          <p>Opening your home office…</p>
-        </div>
-      ) : !data ? (
-        <div className="recovery">
-          <Brand />
-          <h1>Let’s recover your workspace</h1>
-          <p role="alert">{storageError}</p>
-          <Button
-            onClick={() =>
-              download("arkadios-recovery.json", useApp.getState().recover())
-            }
-          >
-            Download recovery data
-          </Button>
-          <input
-            aria-label="Import recovery JSON"
-            type="file"
-            accept=".json"
-            onChange={async (e) => {
-              try {
-                const file = e.target.files?.[0];
-                if (file) useApp.getState().replace(await file.text());
-              } catch (err) {
-                toast.error(String(err));
+      <UnsavedChangesProvider>
+        <Toaster position="bottom-right" richColors closeButton />
+        {!hydrated ? (
+          <div className="boot">
+            <Brand />
+            <div className="boot-line" />
+            <p>Opening your home office…</p>
+          </div>
+        ) : !data ? (
+          <div className="recovery">
+            <Brand />
+            <h1>Let’s recover your workspace</h1>
+            <p role="alert">{storageError}</p>
+            <Button
+              onClick={() =>
+                download("arkadios-recovery.json", useApp.getState().recover())
               }
-            }}
-          />
-          <RecoveryReset />
-        </div>
-      ) : (
-        <EditorProvider>
-          <Workspace>{children}</Workspace>
-        </EditorProvider>
-      )}
+            >
+              Download recovery data
+            </Button>
+            <input
+              aria-label="Import recovery JSON"
+              type="file"
+              accept=".json"
+              onChange={async (e) => {
+                try {
+                  const file = e.target.files?.[0];
+                  if (file) useApp.getState().replace(await file.text());
+                } catch (err) {
+                  toast.error(String(err));
+                }
+              }}
+            />
+            <RecoveryReset />
+          </div>
+        ) : (
+          <EditorProvider>
+            <Workspace>{children}</Workspace>
+          </EditorProvider>
+        )}
+      </UnsavedChangesProvider>
     </ConfirmProvider>
   );
 }
@@ -175,6 +178,7 @@ function Workspace({ children }: { children: React.ReactNode }) {
     router = useRouter(),
     editor = useEditor();
   const u = actor(d);
+  const confirmDiscard = useDiscardChanges();
   const [mobile, setMobile] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
     [query, setQuery] = useState(""),
@@ -430,9 +434,11 @@ function Workspace({ children }: { children: React.ReactNode }) {
                 <select
                   aria-label="Demo persona"
                   value={u.id}
-                  onChange={(e) =>
-                    useApp.getState().switchPersona(e.target.value)
-                  }
+                  onChange={async (e) => {
+                    const persona = e.target.value;
+                    if (await confirmDiscard())
+                      useApp.getState().switchPersona(persona);
+                  }}
                 >
                   {values(d.users)
                     .filter((u) => u.active)

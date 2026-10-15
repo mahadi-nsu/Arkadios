@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
+import { useUnsavedChanges } from "./unsaved-changes";
 export type Field = {
   name: string;
   label: string;
@@ -61,17 +62,20 @@ export function RecordForm({
     register,
     handleSubmit,
     control,
-    formState: { errors, isSubmitting },
+    reset,
+    formState: { errors, isSubmitting, isDirty },
   } = useForm<Record<string, string>>({
     defaultValues: defaults,
     resolver: zodResolver(schema),
   });
+  useUnsavedChanges(!readOnly && isDirty, () => reset());
   return (
     <form
       onSubmit={handleSubmit((v) => {
         try {
           if (readOnly) return;
           onSubmit(v);
+          reset(v);
         } catch (e) {
           toast.error(e instanceof Error ? e.message : "Unable to save.");
         }
@@ -178,7 +182,11 @@ export function RecordForm({
       {children}
       <div className="form-footer">
         <span>
-          {readOnly ? "Viewing a shared record" : "Saved in this browser"}
+          {readOnly
+            ? "Viewing a shared record"
+            : isDirty
+              ? "Unsaved changes"
+              : "Changes save in this browser"}
         </span>
         {!readOnly && (
           <Button type="submit" disabled={isSubmitting}>

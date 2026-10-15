@@ -8,6 +8,7 @@ import {
   ChevronRight,
   ChevronsUpDown,
   Inbox,
+  Columns3,
   Search,
 } from "lucide-react";
 import {
@@ -17,9 +18,16 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   SortingState,
+  VisibilityState,
   useReactTable,
 } from "@tanstack/react-table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "./ui/dialog";
 import { Button } from "./ui/button";
 import { cn, initials } from "@/lib/utils";
 import { Dataset, Firm, Stage } from "@/lib/model";
@@ -225,35 +233,152 @@ export function DataTable<T>({
   pageSize = 10,
   empty = "No matching records",
   onRowClick,
+  preferenceKey,
 }: {
   data: T[];
   columns: ColumnDef<T>[];
   pageSize?: number;
   empty?: string;
   onRowClick?: (row: T) => void;
+  preferenceKey?: string;
 }) {
   const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize });
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    if (preferenceKey) {
+      try {
+        const stored = JSON.parse(
+          localStorage.getItem(`arkadios-table-${preferenceKey}-v1`) ?? "null",
+        );
+        if (stored && [10, 25, 50].includes(stored.pageSize))
+          setPagination({ pageIndex: 0, pageSize: stored.pageSize });
+        if (stored?.hidden && Array.isArray(stored.hidden))
+          setColumnVisibility(
+            Object.fromEntries(
+              stored.hidden
+                .filter(
+                  (id: unknown) =>
+                    typeof id === "string" &&
+                    !["name", "title", "select"].includes(id),
+                )
+                .map((id: string) => [id, false]),
+            ),
+          );
+      } catch {
+        /* Table preferences are optional; records remain available. */
+      }
+    }
+    setLoaded(true);
+  }, [preferenceKey]);
+  useEffect(() => {
+    if (!preferenceKey || !loaded) return;
+    try {
+      localStorage.setItem(
+        `arkadios-table-${preferenceKey}-v1`,
+        JSON.stringify({
+          pageSize: pagination.pageSize,
+          hidden: Object.keys(columnVisibility).filter(
+            (id) => columnVisibility[id] === false,
+          ),
+        }),
+      );
+    } catch {
+      /* A blocked preference write must not block the table. */
+    }
+  }, [preferenceKey, loaded, pagination.pageSize, columnVisibility]);
   // TanStack owns its mutable table model; this component is intentionally not compiler-memoized.
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,
-    state: { sorting },
+    state: { sorting, columnVisibility, pagination },
     onSortingChange: setSorting,
+    onColumnVisibilityChange: setColumnVisibility,
+    onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    initialState: { pagination: { pageSize } },
   });
+  const allColumns = table.getAllLeafColumns();
+  const primary =
+    allColumns.find((column) => ["name", "title"].includes(column.id)) ??
+    allColumns.find((column) => column.id !== "select");
+  const selectionVisible = table
+    .getVisibleLeafColumns()
+    .some((column) => column.id === "select");
+  const cellProps = (id: string) =>
+    id === primary?.id
+      ? { className: "pinned-cell", style: { left: selectionVisible ? 44 : 0 } }
+      : id === "select"
+        ? { className: "selection-cell pinned-cell", style: { left: 0 } }
+        : {};
+  const label = (column: (typeof allColumns)[number]) =>
+    typeof column.columnDef.header === "string"
+      ? column.columnDef.header
+      : column.id === "select"
+        ? "Select rows"
+        : column.id === "actions"
+          ? "Actions"
+          : column.id.replaceAll("_", " ");
+  const visibleCount = table.getVisibleLeafColumns().length;
   return (
     <>
-      <div className="table-scroll">
+      <div className="data-table-controls">
+        <span>
+          {visibleCount} of {allColumns.length} columns
+        </span>
+        <div>
+          <label className="table-page-size">
+            Rows per page
+            <select
+              aria-label="Rows per page"
+              value={pagination.pageSize}
+              onChange={(event) =>
+                table.setPageSize(Number(event.target.value))
+              }
+            >
+              {[10, 25, 50].map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </label>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => setPreferencesOpen(true)}
+          >
+            <Columns3 size={15} />
+            Columns
+          </Button>
+        </div>
+      </div>
+      <div
+        className="table-scroll data-table-viewport"
+        role="region"
+        aria-label="Scrollable records"
+        tabIndex={0}
+      >
         <table className="data-table">
           <thead>
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id}>
                 {hg.headers.map((h) => (
-                  <th key={h.id}>
+                  <th
+                    key={h.id}
+                    {...cellProps(h.column.id)}
+                    aria-sort={
+                      h.column.getIsSorted() === "asc"
+                        ? "ascending"
+                        : h.column.getIsSorted() === "desc"
+                          ? "descending"
+                          : undefined
+                    }
+                  >
                     {h.isPlaceholder ? null : h.column.getCanSort() ? (
                       <button
                         className="sort-button"
@@ -286,7 +411,7 @@ export function DataTable<T>({
                 className={onRowClick ? "clickable-row" : ""}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
+                  <td key={cell.id} {...cellProps(cell.column.id)}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
@@ -303,20 +428,17 @@ export function DataTable<T>({
       </div>
       <div className="table-footer">
         <span>
-          {data.length
-            ? table.getState().pagination.pageIndex * pageSize + 1
-            : 0}
-          –
+          {data.length ? pagination.pageIndex * pagination.pageSize + 1 : 0}–
           {Math.min(
-            (table.getState().pagination.pageIndex + 1) * pageSize,
+            (pagination.pageIndex + 1) * pagination.pageSize,
             data.length,
           )}{" "}
           of {data.length} records
         </span>
         <div className="pagination">
           <span>
-            Page {data.length ? table.getState().pagination.pageIndex + 1 : 0}{" "}
-            of {table.getPageCount()}
+            Page {data.length ? pagination.pageIndex + 1 : 0} of{" "}
+            {table.getPageCount()}
           </span>
           <Button
             variant="secondary"
@@ -338,6 +460,47 @@ export function DataTable<T>({
           </Button>
         </div>
       </div>
+      <Dialog open={preferencesOpen} onOpenChange={setPreferencesOpen}>
+        <DialogContent className="table-columns-dialog">
+          <div className="drawer-heading">
+            <DialogTitle>Choose columns</DialogTitle>
+            <DialogDescription>
+              Keep the information you need. The name and row selection stay
+              visible while you scroll.
+            </DialogDescription>
+          </div>
+          <fieldset className="table-column-options">
+            <legend className="sr-only">Visible columns</legend>
+            {allColumns.map((column) => (
+              <label className="check-label" key={column.id}>
+                <input
+                  type="checkbox"
+                  checked={
+                    column.id === primary?.id ||
+                    column.id === "select" ||
+                    column.getIsVisible()
+                  }
+                  disabled={column.id === primary?.id || column.id === "select"}
+                  onChange={column.getToggleVisibilityHandler()}
+                />
+                <span>
+                  {label(column)}
+                  {column.id === primary?.id && <small>Always visible</small>}
+                </span>
+              </label>
+            ))}
+          </fieldset>
+          <div className="confirm-actions">
+            <Button
+              variant="secondary"
+              onClick={() => table.resetColumnVisibility()}
+            >
+              Show all
+            </Button>
+            <Button onClick={() => setPreferencesOpen(false)}>Done</Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

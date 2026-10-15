@@ -32,19 +32,29 @@ import {
 } from "@/components/ui/dialog";
 import { RecordForm } from "@/components/forms";
 import { useConfirm } from "@/components/confirm";
+import {
+  useDiscardChanges,
+  useUnsavedChanges,
+} from "@/components/unsaved-changes";
 export function Workflows() {
   const d = useData();
   const [selected, setSelected] = useState(values(d.workflows)[0].id),
     [tab, setTab] = useState("editor"),
     [create, setCreate] = useState(false);
   const run = useApp((s) => s.run);
+  const confirmDiscard = useDiscardChanges();
   return (
     <>
       <PageHeading
         title="Workflows & SOPs"
         description="Build a repeatable process. Leave room for a personal partnership."
         actions={
-          <Button disabled={!canAdmin(d)} onClick={() => setCreate(true)}>
+          <Button
+            disabled={!canAdmin(d)}
+            onClick={async () => {
+              if (await confirmDiscard()) setCreate(true);
+            }}
+          >
             <Plus size={16} />
             New workflow
           </Button>
@@ -63,7 +73,12 @@ export function Workflows() {
         </div>
         <Badge tone="green">Versioned by design</Badge>
       </div>
-      <Tabs value={tab} onValueChange={setTab}>
+      <Tabs
+        value={tab}
+        onValueChange={async (next) => {
+          if (next !== tab && (await confirmDiscard())) setTab(next);
+        }}
+      >
         <TabsList>
           <TabsTrigger value="editor">
             <BookOpen size={15} />
@@ -82,7 +97,10 @@ export function Workflows() {
                 <button
                   key={w.id}
                   className={selected === w.id ? "selected" : ""}
-                  onClick={() => setSelected(w.id)}
+                  onClick={async () => {
+                    if (w.id !== selected && (await confirmDiscard()))
+                      setSelected(w.id);
+                  }}
                 >
                   <span className="workflow-nav-icon">
                     <WorkflowIcon size={18} />
@@ -187,6 +205,10 @@ function WorkflowEditor({ workflow }: { workflow: Workflow }) {
     [expanded, setExpanded] = useState(draft.steps[0]?.id ?? ""),
     [history, setHistory] = useState(false);
   const editable = canAdmin(d);
+  useUnsavedChanges(
+    editable && JSON.stringify(draft) !== JSON.stringify(workflow),
+    () => setDraft(structuredClone(workflow)),
+  );
   const versions = values(d.versions)
     .filter((v) => v.stage === draft.stage)
     .sort((a, b) => b.version - a.version);
@@ -614,6 +636,10 @@ function RulesEditor() {
   const d = useData(),
     run = useApp((s) => s.run);
   const [rules, setRules] = useState(structuredClone(d.rules));
+  useUnsavedChanges(
+    canAdmin(d) && JSON.stringify(rules) !== JSON.stringify(d.rules),
+    () => setRules(structuredClone(d.rules)),
+  );
   return (
     <section className="panel">
       <SectionHeading

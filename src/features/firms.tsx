@@ -5,6 +5,9 @@ import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   Archive,
+  CircleAlert,
+  CalendarDays,
+  ListTodo,
   ArrowRight,
   ArrowUpRight,
   Check,
@@ -44,6 +47,8 @@ import {
 } from "@/lib/permissions";
 import { prettyDate } from "@/lib/dates";
 import { uid } from "@/lib/utils";
+import { nextFirmAction } from "@/lib/next-action";
+import { UnsavedChangesGuard } from "@/components/unsaved-changes";
 import { exportCSV } from "@/lib/csv";
 import {
   Avatar,
@@ -62,6 +67,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogClose,
   DialogDescription,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -408,11 +414,15 @@ export function Firms() {
             )}
           </div>
         </div>
-        <DataTable data={firms} columns={columns} />
+        <DataTable preferenceKey="firms" data={firms} columns={columns} />
       </section>
       <Dialog open={saveOpen} onOpenChange={setSaveOpen}>
         <DialogContent>
           <div className="drawer-heading">
+            <UnsavedChangesGuard
+              dirty={!!viewName.trim()}
+              onDiscard={() => setViewName("")}
+            />
             <DialogTitle>Save this firm view</DialogTitle>
             <DialogDescription>
               Keep the current search, stage, and department filters.
@@ -458,13 +468,11 @@ export function Firms() {
               />
             </label>
             <div className="confirm-actions">
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={() => setSaveOpen(false)}
-              >
-                Cancel
-              </Button>
+              <DialogClose asChild>
+                <Button type="button" variant="secondary">
+                  Cancel
+                </Button>
+              </DialogClose>
               <Button type="submit" disabled={!viewName.trim()}>
                 Save view
               </Button>
@@ -581,6 +589,138 @@ export function HandoffButton({ firm }: { firm: Firm }) {
 function CircleAlertIcon() {
   return <Timer size={17} />;
 }
+function FirmNextActionPanel({
+  firm,
+  onChecklist,
+}: {
+  firm: Firm;
+  onChecklist: () => void;
+}) {
+  const d = useData(),
+    editor = useEditor();
+  const action = nextFirmAction(d, firm);
+  const task = action.kind === "task" ? action.task : undefined;
+  const review = action.kind === "review" ? action.review : undefined;
+  const blockers =
+    action.kind === "task" || action.kind === "checklist"
+      ? action.blockers
+      : [];
+  const title =
+    task?.title ??
+    (action.kind === "handoff"
+      ? `Ready for ${action.nextStage}`
+      : review
+        ? review.type
+        : action.kind === "archived"
+          ? "Restore this firm to continue"
+          : action.kind === "checklist"
+            ? "Review stage requirements"
+            : "Schedule the next relationship review");
+  const ownerId = task ? task.assigneeId : (review?.ownerId ?? firm.ownerId);
+  const dueDate = task?.dueDate ?? review?.date;
+  const late = dueDate && dueDate < d.settings.demoDate;
+  return (
+    <section
+      className={`firm-next-action ${action.kind === "handoff" ? "action-ready" : ""}`}
+      aria-label="Recommended next action"
+    >
+      <div className="next-action-symbol">
+        {action.kind === "handoff" ? (
+          <CheckCircle2 size={23} />
+        ) : review ? (
+          <CalendarDays size={23} />
+        ) : (
+          <ListTodo size={23} />
+        )}
+      </div>
+      <div className="next-action-content">
+        <div className="next-action-eyebrow">
+          Next action {late && <Badge tone="red">Overdue</Badge>}
+          {action.kind === "handoff" && (
+            <Badge tone="green">Ready for approval</Badge>
+          )}
+        </div>
+        <h2>{title}</h2>
+        <div className="next-action-meta">
+          <span>
+            {action.kind === "handoff" ? (
+              "Approver: Admin or department Manager"
+            ) : (
+              <>
+                Owner: {ownerId ? d.users[ownerId]?.name : "Unassigned"}
+                {task &&
+                  !ownerId &&
+                  ` · ${d.departments[task.departmentId]?.name} queue`}
+              </>
+            )}
+          </span>
+          {dueDate && (
+            <span className={late ? "due-overdue" : ""}>
+              <CalendarDays size={14} />
+              Due {prettyDate(dueDate)}
+            </span>
+          )}
+        </div>
+        {blockers.length > 0 && (
+          <div className="next-action-blockers">
+            <span>
+              <CircleAlert size={14} />
+              To complete this action
+            </span>
+            <ul>
+              {blockers.map((reason, index) => (
+                <li key={index}>{reason}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {action.kind === "handoff" && (
+          <p>All mandatory requirements and evidence are complete.</p>
+        )}
+        {action.kind === "archived" && (
+          <p>Use the Archived list in Firm Partners to restore this record.</p>
+        )}
+      </div>
+      <div className="next-action-buttons">
+        {task ? (
+          <Button onClick={() => editor({ type: "task", id: task.id })}>
+            {canEditTask(d, task) ? "Open task" : "View task"}
+            <ArrowUpRight size={16} />
+          </Button>
+        ) : action.kind === "handoff" ? (
+          <HandoffButton firm={firm} />
+        ) : action.kind === "checklist" ? (
+          <Button onClick={onChecklist}>
+            View checklist
+            <ArrowRight size={16} />
+          </Button>
+        ) : action.kind === "archived" ? (
+          <Button variant="secondary" asChild>
+            <Link href="/firms">
+              Firm Partners
+              <ArrowRight size={16} />
+            </Link>
+          </Button>
+        ) : (
+          <Button
+            disabled={!review && !canEditFirm(d, firm)}
+            onClick={() =>
+              editor({
+                type: "review",
+                firmId: firm.id,
+                ...(review ? { id: review.id } : {}),
+              })
+            }
+          >
+            {review ? "Open review" : "Schedule review"}
+            <ArrowUpRight size={16} />
+          </Button>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function FirmDetail() {
   const d = useData(),
     params = useSearchParams(),
@@ -643,6 +783,10 @@ export function FirmDetail() {
           <HandoffButton firm={firm} />
         </div>
       </div>
+      <FirmNextActionPanel
+        firm={firm}
+        onChecklist={() => setTab("checklist")}
+      />
       <div className="firm-stage-rail">
         {stages.map((stage, i) => {
           const current = stages.indexOf(firm.stage);

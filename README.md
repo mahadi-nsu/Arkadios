@@ -36,6 +36,9 @@ npm run format
 - Global search covers firms, contacts, tasks, and projects. `⌘/Ctrl K` opens it; Escape closes dialogs. Mobile navigation supports Escape, focus restoration, and keyboard containment.
 - The department selector scopes each supported screen. Team Workload always restricts Managers to their own department. Reports label which measures use the reporting period and which are current snapshots.
 - Table searches, sorting, pagination, filtered CSV exports, archive/restore, saved firm views, bulk task assignment, and contact CSV mapping/validation/duplicate handling all use live records.
+- Shared tables pin the record name and selection column, retain headings during vertical scrolling, and offer column visibility and 10/25/50 rows per page. Table preferences persist separately in this browser.
+- Firm details show a recommended next action with owner, due date, completion blockers, and a direct task/review action. Prerequisites take priority; handoff appears only after required evidence is complete.
+- Record forms, file selections, task comments, and SOP/rule drafts warn before discarding unsaved edits. Dialog close, Escape/outside click, internal navigation links, SOP/tab switches, and persona changes use a Keep editing/Discard choice. Reloading or leaving the site uses the browser’s native warning when supported.
 - Contact CSV supports quoted commas, escaped quotes, and configured custom fields. Firm association can be a name or ID. Vendors may have no firm. Imports preview errors and require confirmation before committing; exports escape spreadsheet formulas.
 - Seed JSON contains 8 departments, 50 fictional employees, 67 firms, 700 external contacts, and linked tasks, projects, documents, messages, reviews, activities, stage histories, and published SOPs. All emails use example.com.
 - The seed stage distribution is 14 / 6 / 5 / 4 / 38. Counts and health indicators are calculated from records, including after edits and imports.

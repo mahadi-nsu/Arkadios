@@ -6,6 +6,7 @@ type Request = {
   title: string;
   description: string;
   label?: string;
+  cancelLabel?: string;
   danger?: boolean;
 };
 const Context = createContext<(r: Request) => Promise<boolean>>(
@@ -31,7 +32,7 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
         }}
       >
         <Alert.Portal>
-          <Alert.Overlay className="dialog-overlay" />
+          <Alert.Overlay className="dialog-overlay confirm-overlay" />
           <Alert.Content className="dialog-content confirm-dialog">
             <div className="drawer-heading">
               <Alert.Title>{request?.title}</Alert.Title>
@@ -39,7 +40,9 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
             </div>
             <div className="confirm-actions">
               <Alert.Cancel asChild>
-                <Button variant="secondary">Cancel</Button>
+                <Button variant="secondary">
+                  {request?.cancelLabel ?? "Cancel"}
+                </Button>
               </Alert.Cancel>
               <Alert.Action asChild>
                 <Button

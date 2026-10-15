@@ -1,8 +1,39 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { useMemo, useState } from "react";
+import {
+  ChangeScope,
+  ChangeScopeContext,
+  useDiscardChanges,
+} from "../unsaved-changes";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
-export const Dialog = DialogPrimitive.Root;
+export function Dialog({
+  children,
+  open,
+  defaultOpen,
+  onOpenChange,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root>) {
+  const scope = useMemo<ChangeScope>(() => new Set(), []);
+  const confirmDiscard = useDiscardChanges();
+  const [internalOpen, setInternalOpen] = useState(defaultOpen ?? false);
+  return (
+    <ChangeScopeContext.Provider value={scope}>
+      <DialogPrimitive.Root
+        {...props}
+        open={open ?? internalOpen}
+        onOpenChange={async (next) => {
+          if (!next && !(await confirmDiscard(scope))) return;
+          setInternalOpen(next);
+          onOpenChange?.(next);
+        }}
+      >
+        {children}
+      </DialogPrimitive.Root>
+    </ChangeScopeContext.Provider>
+  );
+}
 export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogClose = DialogPrimitive.Close;
 export function DialogContent({

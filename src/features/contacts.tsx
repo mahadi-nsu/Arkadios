@@ -286,7 +286,7 @@ export function Contacts({ firmId }: { firmId?: string }) {
             </select>
           </div>
         </div>
-        <DataTable data={contacts} columns={columns} />
+        <DataTable preferenceKey="contacts" data={contacts} columns={columns} />
       </section>
       <ContactImport
         open={importOpen}

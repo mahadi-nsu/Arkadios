@@ -41,10 +41,15 @@ import {
 } from "@/components/ui/dialog";
 import { RecordForm } from "@/components/forms";
 import { useConfirm } from "@/components/confirm";
+import {
+  useDiscardChanges,
+  useUnsavedChanges,
+} from "@/components/unsaved-changes";
 import { BackupTools } from "./backup-tools";
 export function Settings() {
   const d = useData(),
     [tab, setTab] = useState("users");
+  const confirmDiscard = useDiscardChanges();
   return (
     <>
       <PageHeading
@@ -57,7 +62,12 @@ export function Settings() {
           </Badge>
         }
       />
-      <Tabs value={tab} onValueChange={setTab}>
+      <Tabs
+        value={tab}
+        onValueChange={async (next) => {
+          if (next !== tab && (await confirmDiscard())) setTab(next);
+        }}
+      >
         <TabsList>
           {[
             { id: "users", name: "Internal users" },
@@ -193,7 +203,7 @@ function UsersSettings() {
         />
         <Badge>Invitations are local simulations</Badge>
       </div>
-      <DataTable data={users} columns={columns} />
+      <DataTable preferenceKey="employees" data={users} columns={columns} />
       <Dialog
         open={edit !== null}
         onOpenChange={(open) => !open && setEdit(null)}
@@ -431,6 +441,13 @@ function DepartmentForm({ dep }: { dep: Dataset["departments"][string] }) {
     run = useApp((s) => s.run);
   const [name, setName] = useState(dep.name),
     [manager, setManager] = useState(dep.managerId);
+  useUnsavedChanges(
+    canAdmin(d) && (name !== dep.name || manager !== dep.managerId),
+    () => {
+      setName(dep.name);
+      setManager(dep.managerId);
+    },
+  );
   return (
     <form
       onSubmit={(e) => {
@@ -493,6 +510,15 @@ function LifecycleSettings() {
     run = useApp((s) => s.run);
   const [labels, setLabels] = useState(d.settings.stageLabels),
     [targets, setTargets] = useState(d.settings.defaultTargets);
+  useUnsavedChanges(
+    canAdmin(d) &&
+      (JSON.stringify(labels) !== JSON.stringify(d.settings.stageLabels) ||
+        JSON.stringify(targets) !== JSON.stringify(d.settings.defaultTargets)),
+    () => {
+      setLabels(d.settings.stageLabels);
+      setTargets(d.settings.defaultTargets);
+    },
+  );
   return (
     <section className="panel">
       <SectionHeading

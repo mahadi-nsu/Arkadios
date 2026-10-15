@@ -27,6 +27,7 @@ import { eventTime, shiftDate } from "@/lib/dates";
 import { uid } from "@/lib/utils";
 import { newTask } from "@/lib/engine";
 import { Command } from "@/lib/repository";
+import { useDiscardChanges, useUnsavedChanges } from "./unsaved-changes";
 export type EditorRequest = {
   type:
     "firm" | "contact" | "task" | "project" | "document" | "thread" | "review";
@@ -42,8 +43,12 @@ export const useEditor = () => useContext(EditorContext);
 export const sessionFiles = new Map<string, File>();
 export function EditorProvider({ children }: { children: React.ReactNode }) {
   const [request, setRequest] = useState<EditorRequest | null>(null);
+  const confirmDiscard = useDiscardChanges();
+  const openEditor = async (next: EditorRequest) => {
+    if (await confirmDiscard()) setRequest(next);
+  };
   return (
-    <EditorContext.Provider value={setRequest}>
+    <EditorContext.Provider value={openEditor}>
       {children}
       <Dialog
         open={!!request}
@@ -71,6 +76,7 @@ function Editor({
     run = useApp((s) => s.run);
   const u = actor(d);
   const [file, setFile] = useState<File | null>(null);
+  useUnsavedChanges(!!file, () => setFile(null));
   const people = values(d.users)
     .filter((u) => u.active)
     .map((u) => ({ value: u.id, label: u.name }));
@@ -835,6 +841,7 @@ function TaskDiscussion({ id, readOnly }: { id: string; readOnly: boolean }) {
     editor = useEditor();
   const t = d.tasks[id];
   const [comment, setComment] = useState("");
+  useUnsavedChanges(!readOnly && !!comment.trim(), () => setComment(""));
   return (
     <section className="task-discussion">
       <h3>Team conversation</h3>

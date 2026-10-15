@@ -24,6 +24,10 @@ import {
 } from "@/components/common";
 import { useEditor } from "@/components/editors";
 import { Button } from "@/components/ui/button";
+import {
+  useDiscardChanges,
+  useUnsavedChanges,
+} from "@/components/unsaved-changes";
 export function Communications() {
   const d = useData(),
     params = useSearchParams(),
@@ -61,6 +65,8 @@ export function Communications() {
     canWrite(d) &&
     (canEditFirm(d, d.firms[th.firmId]) ||
       (u.role === "Member" && th.ownerId === u.id));
+  const confirmDiscard = useDiscardChanges();
+  useUnsavedChanges(!!allowed && !!body.trim(), () => setBody(""));
   return (
     <>
       <PageHeading
@@ -110,9 +116,10 @@ export function Communications() {
                 <button
                   key={t.id}
                   className={selected === t.id ? "selected" : ""}
-                  onClick={() => {
+                  onClick={async () => {
+                    if (t.id !== selected && !(await confirmDiscard())) return;
                     setSelected(t.id);
-                    setBody("");
+                    if (t.id !== selected) setBody("");
                     setMobileThread(true);
                   }}
                 >
