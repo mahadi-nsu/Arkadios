@@ -2367,9 +2367,14 @@ details p {
 }
 .pipeline-board {
   display: grid;
-  grid-template-columns: repeat(5, minmax(205px, 1fr));
-  gap: 16px;
-  overflow: auto;
+  grid-template-columns: repeat(5, minmax(350px, 1fr));
+  contain: inline-size paint;
+  gap: 18px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-color: #8baba5 #e5edea;
   align-items: start;
   padding-bottom: 15px;
 }
@@ -2377,7 +2382,7 @@ details p {
   background: #f1f3f5;
   border: 1px solid #e5e9ec;
   border-radius: 8px;
-  padding: 13px 10px;
+  padding: 15px 14px;
   max-height: calc(100vh - 260px);
   min-height: 350px;
   display: flex;
@@ -5455,7 +5460,7 @@ details p {
     padding: 0 20px;
   }
   .pipeline-board {
-    grid-template-columns: repeat(5, 230px);
+    grid-template-columns: repeat(5, minmax(330px, 1fr));
   }
   .pipeline-column {
     max-height: 75vh;
@@ -5816,7 +5821,6 @@ details p {
     font-size: 0.75rem;
   }
   .pipeline-board {
-    grid-template-columns: repeat(5, 250px);
     gap: 14px;
   }
   .pipeline-column {

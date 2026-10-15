@@ -91,7 +91,12 @@ export function Pipeline() {
         </div>
       </div>
       {view === "board" ? (
-        <div className="pipeline-board">
+        <div
+          className="pipeline-board"
+          role="region"
+          aria-label="Lifecycle pipeline board"
+          tabIndex={0}
+        >
           {stages.map((s, i) => {
             const records = firms.filter((f) => f.stage === s);
             return (
