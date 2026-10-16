@@ -32,6 +32,7 @@ npm run format
 
 ## Workspace and data
 
+- Light/dark themes are available in the top bar. The first visit follows the system preference; an explicit selection persists in this browser, stays in sync across tabs, and is applied before the first paint.
 - All twelve workspace areas are implemented: Command Center, firms, contacts, pipeline, tasks, projects, communications, documents, reports, workload, SOPs, and settings.
 - Global search covers firms, contacts, tasks, and projects. `⌘/Ctrl K` opens it; Escape closes dialogs. Mobile navigation supports Escape, focus restoration, and keyboard containment.
 - The department selector scopes each supported screen. Team Workload always restricts Managers to their own department. Reports label which measures use the reporting period and which are current snapshots.

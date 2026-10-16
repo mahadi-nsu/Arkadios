@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AppShell } from "@/components/shell";
+import { ThemeProvider } from "@/components/theme-provider";
+import { themeBootstrap } from "@/lib/theme";
 export const metadata: Metadata = {
   title: {
     default: "Command Center · Arkadios Home Office",
@@ -15,9 +17,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          id="arkadios-theme-init"
+          dangerouslySetInnerHTML={{ __html: themeBootstrap }}
+        />
+      </head>
       <body>
-        <AppShell>{children}</AppShell>
+        <ThemeProvider>
+          <AppShell>{children}</AppShell>
+        </ThemeProvider>
       </body>
     </html>
   );

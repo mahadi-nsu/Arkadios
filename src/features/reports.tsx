@@ -279,7 +279,16 @@ export function Reports() {
                           <Cell fill={stageColor[c.stage]} key={c.stage} />
                         ))}
                       </Pie>
-                      <Tooltip />
+                      <Tooltip
+                        contentStyle={{
+                          background: "var(--surface)",
+                          border: "1px solid var(--border)",
+                          borderRadius: 8,
+                          fontSize: 12,
+                        }}
+                        labelStyle={{ color: "var(--text)" }}
+                        itemStyle={{ color: "var(--text)" }}
+                      />
                     </PieChart>
                   </ResponsiveContainer>
                   <div className="donut-center">
@@ -306,32 +315,41 @@ export function Reports() {
               <div className="chart-padding">
                 <ResponsiveContainer width="100%" height={245}>
                   <BarChart data={durations} barGap={3}>
-                    <CartesianGrid vertical={false} stroke="#edf0f3" />
+                    <CartesianGrid vertical={false} stroke="var(--border)" />
                     <XAxis
                       dataKey="name"
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 11, fill: "#667085" }}
+                      tick={{ fontSize: 11, fill: "var(--muted)" }}
                     />
                     <YAxis
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 11, fill: "#667085" }}
+                      tick={{ fontSize: 11, fill: "var(--muted)" }}
                       unit="d"
                     />
-                    <Tooltip />
+                    <Tooltip
+                      contentStyle={{
+                        background: "var(--surface)",
+                        border: "1px solid var(--border)",
+                        borderRadius: 8,
+                        fontSize: 12,
+                      }}
+                      labelStyle={{ color: "var(--text)" }}
+                      itemStyle={{ color: "var(--text)" }}
+                    />
                     <Legend wrapperStyle={{ fontSize: 12 }} />
                     <Bar
                       dataKey="duration"
                       name="Completed duration (days)"
-                      fill="#438e83"
+                      fill="var(--chart-accent)"
                       radius={[3, 3, 0, 0]}
                       maxBarSize={27}
                     />
                     <Bar
                       dataKey="target"
                       name="Versioned target (days)"
-                      fill="#d4e4df"
+                      fill="var(--chart-target)"
                       radius={[3, 3, 0, 0]}
                       maxBarSize={27}
                     />
@@ -347,25 +365,34 @@ export function Reports() {
               <div className="chart-padding">
                 <ResponsiveContainer width="100%" height={240}>
                   <LineChart data={months}>
-                    <CartesianGrid vertical={false} stroke="#edf0f3" />
+                    <CartesianGrid vertical={false} stroke="var(--border)" />
                     <XAxis
                       dataKey="month"
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 12, fill: "var(--muted)" }}
                     />
                     <YAxis
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 12, fill: "var(--muted)" }}
                       unit="d"
                     />
-                    <Tooltip />
+                    <Tooltip
+                      contentStyle={{
+                        background: "var(--surface)",
+                        border: "1px solid var(--border)",
+                        borderRadius: 8,
+                        fontSize: 12,
+                      }}
+                      labelStyle={{ color: "var(--text)" }}
+                      itemStyle={{ color: "var(--text)" }}
+                    />
                     <Line
                       type="monotone"
                       dataKey="days"
                       name="Completed onboarding days"
-                      stroke="#438e83"
+                      stroke="var(--chart-accent)"
                       strokeWidth={2.5}
                       dot={{ r: 4, fill: "#fff", strokeWidth: 2 }}
                       connectNulls={false}
@@ -386,12 +413,12 @@ export function Reports() {
                     layout="vertical"
                     margin={{ left: 12 }}
                   >
-                    <CartesianGrid horizontal={false} stroke="#edf0f3" />
+                    <CartesianGrid horizontal={false} stroke="var(--border)" />
                     <XAxis
                       type="number"
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 11 }}
+                      tick={{ fontSize: 11, fill: "var(--muted)" }}
                       allowDecimals={false}
                     />
                     <YAxis
@@ -400,9 +427,18 @@ export function Reports() {
                       width={112}
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 10 }}
+                      tick={{ fontSize: 10, fill: "var(--muted)" }}
                     />
-                    <Tooltip />
+                    <Tooltip
+                      contentStyle={{
+                        background: "var(--surface)",
+                        border: "1px solid var(--border)",
+                        borderRadius: 8,
+                        fontSize: 12,
+                      }}
+                      labelStyle={{ color: "var(--text)" }}
+                      itemStyle={{ color: "var(--text)" }}
+                    />
                     <Bar
                       dataKey="overdue"
                       name="Overdue tasks"
@@ -410,7 +446,9 @@ export function Reports() {
                       radius={[0, 3, 3, 0]}
                       maxBarSize={17}
                       onClick={(_entry, index) => {
-                        router.push(`/tasks?overdue=true&department=${departments[index].departmentId}`);
+                        router.push(
+                          `/tasks?overdue=true&department=${departments[index].departmentId}`,
+                        );
                       }}
                     />
                   </BarChart>

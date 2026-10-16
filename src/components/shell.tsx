@@ -45,6 +45,7 @@ import {
 import { EditorProvider, useEditor } from "./editors";
 import { ConfirmProvider, useConfirm } from "./confirm";
 import { UnsavedChangesProvider, useDiscardChanges } from "./unsaved-changes";
+import { ThemeToggle, useTheme } from "./theme-provider";
 const navigation = [
   {
     label: "WORKSPACE",
@@ -79,6 +80,7 @@ const navigation = [
   },
 ];
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const { theme } = useTheme();
   const hydrated = useApp((s) => s.hydrated),
     data = useApp((s) => s.data),
     storageError = useApp((s) => s.storageError);
@@ -88,7 +90,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <ConfirmProvider>
       <UnsavedChangesProvider>
-        <Toaster position="bottom-right" richColors closeButton />
+        <Toaster theme={theme} position="bottom-right" richColors closeButton />
         {!hydrated ? (
           <div className="boot">
             <Brand />
@@ -394,6 +396,7 @@ function Workspace({ children }: { children: React.ReactNode }) {
               <span>Search anything…</span>
               <kbd>⌘ K</kbd>
             </button>
+            <ThemeToggle />
             <button
               className="quick-add"
               aria-label="Quick add"

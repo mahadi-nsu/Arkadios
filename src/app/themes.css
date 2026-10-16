@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light;
+  --chart-target: #d4e4df;
+  --chart-accent: #438e83;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --navy: #0b1420;
+  --canvas: #0f1824;
+  --surface: #172433;
+  --text: #e7eff8;
+  --muted: #a7b9cc;
+  --border: #304357;
+  --teal: #47cdb0;
+  --teal-light: #193c34;
+  --theme-bg-surface: #172433;
+  --theme-bg-soft: #1b2b3c;
+  --theme-bg-muted: #26394c;
+  --theme-bg-green: #1a3932;
+  --theme-bg-blue: #1d3352;
+  --theme-bg-amber: #3b301e;
+  --theme-bg-red: #422b30;
+  --theme-bg-violet: #332b48;
+  --theme-solid-green: #3cc3a6;
+  --theme-solid-blue: #5e8fe8;
+  --theme-solid-amber: #d9a647;
+  --theme-solid-red: #dc7a72;
+  --theme-solid-violet: #ad8ad9;
+  --theme-text-primary: #e7eff8;
+  --theme-text-secondary: #b5c6d8;
+  --theme-text-green: #7be3c1;
+  --theme-text-blue: #9bbfff;
+  --theme-text-amber: #f1c477;
+  --theme-text-red: #ffa69f;
+  --theme-text-violet: #d2b3f3;
+  --theme-line: #304357;
+  --theme-line-green: #345b50;
+  --theme-line-blue: #3b5579;
+  --theme-line-amber: #685132;
+  --theme-line-red: #714044;
+  --theme-line-violet: #5e487b;
+  --chart-target: #385e53;
+  --chart-accent: #4acdaf;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 33px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--surface);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.theme-toggle:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.theme-toggle svg {
+  color: #a57418;
+}
+:root[data-theme="dark"] .theme-toggle svg {
+  color: #b4c8ff;
+}
+:root[data-theme="dark"] .btn-primary {
+  color: #08291f;
+}
+:root[data-theme="dark"] .welcome-banner {
+  border-color: #286d60;
+}
+:root[data-theme="dark"] .recovery .brand {
+  color: var(--text);
+}
+:root[data-theme="dark"] .switch > span:after {
+  background: #f5fbff;
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: #91a7bb;
+}
+:root[data-theme="dark"] :focus-visible {
+  outline-color: #54cdb2;
+}
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] select:focus,
+:root[data-theme="dark"] textarea:focus {
+  border-color: var(--teal);
+}
+:root[data-theme="dark"] .data-table-viewport .pinned-cell {
+  box-shadow: 1px 0 0 var(--border);
+}
+:root[data-theme="dark"] .recharts-text {
+  fill: var(--muted);
+}
+:root[data-theme="dark"] .recharts-tooltip-cursor {
+  fill: #94b0c81a;
+  stroke: #6a859b;
+}
+:root[data-theme="dark"] .recharts-legend-item-text {
+  color: var(--text) !important;
+}
+@media (max-width: 620px) {
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .theme-toggle span {
+    display: none;
+  }
+  .topbar-actions > .avatar {
+    display: none;
+  }
+}
