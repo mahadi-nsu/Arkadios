@@ -7426,3 +7426,56 @@ textarea:focus {
     text-overflow: ellipsis;
   }
 }
+
+/* Raised sections make each group readable against the page canvas. */
+.panel,
+.metric-card,
+.project-card,
+.directory-stats,
+.project-summary,
+.report-kpis > div,
+.firm-stage-rail {
+  border-color: var(--section-border);
+  box-shadow: var(--section-shadow);
+}
+.panel {
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.panel > .section-heading {
+  background: var(--section-header);
+}
+.panel > .section-heading:not(:has(+ .panel-intro)) {
+  box-shadow: inset 0 -1px 0 var(--section-divider);
+}
+.panel > .panel-intro {
+  position: relative;
+  background: var(--section-header);
+  padding-bottom: 13px;
+  box-shadow: inset 0 -1px 0 var(--section-divider);
+}
+.pipeline-column {
+  border-color: var(--section-border);
+  box-shadow: var(--card-shadow);
+}
+.pipeline-card,
+.workflow-step {
+  box-shadow: var(--card-shadow);
+}
+.firm-next-action,
+.workflow-intro {
+  box-shadow: var(--section-shadow);
+}
+.panel:focus-within {
+  border-color: var(--section-focus-border);
+  box-shadow:
+    var(--section-shadow),
+    0 0 0 2px var(--section-focus-ring);
+}
+.metric-card:hover,
+.project-card:hover {
+  box-shadow:
+    var(--section-shadow),
+    0 4px 12px var(--section-focus-ring);
+}
